@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="keyboard_emu">
+      <UniqueIdentifier>{4148ca85-98a1-48ed-860d-219bff828cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sketch_pad">
+      <UniqueIdentifier>{b97b165f-fbef-4c0f-acf5-51f0f19252b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="port">
+      <UniqueIdentifier>{b8cd7e65-f5de-4e43-898c-c4df2c10aa00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="port\inc">
+      <UniqueIdentifier>{010c5b35-fe2a-4e3a-aebe-745f3a337a82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="port\common">
+      <UniqueIdentifier>{3e5a654f-b4da-431b-a609-54313e0c11b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="port\3rd">
+      <UniqueIdentifier>{f71616b8-6ebb-4e4a-9bef-8413228817f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="port\3rd\openCV">
+      <UniqueIdentifier>{9af6160c-bfef-40f3-9932-fcb50ffdb256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cvui">
+      <UniqueIdentifier>{580ef8c4-939f-46a7-824b-93620d58085d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cvui\impl">
+      <UniqueIdentifier>{a9d185fd-89d6-400b-8b60-368b7057a9cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref">
+      <UniqueIdentifier>{040293e2-9942-4381-b6d0-51cabec76aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref\inc">
+      <UniqueIdentifier>{ee209c1a-b9e2-4b42-afa6-9012513905f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref\jsoncpp">
+      <UniqueIdentifier>{37302d93-44bf-4934-a2c2-c92f927cc5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref\jsoncpp\impl">
+      <UniqueIdentifier>{157e139d-d65e-4eda-b791-dcc2ec32691f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref\inc\json">
+      <UniqueIdentifier>{47c1e0eb-6a56-41ab-b35f-6f00d5ac0a95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\blobfinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cameraundistortor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cv_utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cvpipeline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cvpositionest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\keyboard_emu\keyboard_emu.cpp">
+      <Filter>keyboard_emu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\keyboard_emu\layout_provider.cpp">
+      <Filter>keyboard_emu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sketchpad\sketch_pad.cpp">
+      <Filter>sketch_pad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\port\win32\keyinjector_win32.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="src\port\win32\powervideocap_win32.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="src\port\win32\3rd\opencv\cap_dshow.cpp">
+      <Filter>port\3rd\openCV</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cvui\impl\cvui_button.cpp">
+      <Filter>cvui\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cvui\impl\cvui_container.cpp">
+      <Filter>cvui\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cvui\impl\cvui_imageframe.cpp">
+      <Filter>cvui\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\port\win32\platform_language_win32.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config_mgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resource_mgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\camera_selector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\port\win32\productid_win32.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\port\win32\updatechecker_win32.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_reader.cpp">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_value.cpp">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_writer.cpp">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\blobfinder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cameraundistortor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cv_common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cv_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cvpipeline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cvpositionest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev_conf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\keyboard_emu\keyboard_emu.h">
+      <Filter>keyboard_emu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\keyboard_emu\layout_provider.h">
+      <Filter>keyboard_emu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sketchpad\sketch_pad.h">
+      <Filter>sketch_pad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\win32\inc\arch_inc.h">
+      <Filter>port\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\common\keyinjector.h">
+      <Filter>port\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\common\PowerVideoCapture.h">
+      <Filter>port\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\win32\3rd\opencv\cap_dshow.h">
+      <Filter>port\3rd\openCV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cvui\cvui_button.h">
+      <Filter>cvui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cvui\cvui_base.h">
+      <Filter>cvui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cvui\cvui.h">
+      <Filter>cvui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cvui\cvui_imageframe.h">
+      <Filter>cvui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\common\platform_language.h">
+      <Filter>port\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config_mgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource_mgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\camera_selector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\common\productid.h">
+      <Filter>port\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\port\common\updatechecker.h">
+      <Filter>port\common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_batchallocator.h">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\autolink.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\writer.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\config.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\features.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\forwards.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\json.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\reader.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\value.h">
+      <Filter>ref\inc\json</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icon2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\rplogo.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_valueiterator.inl">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </None>
+    <None Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_internalarray.inl">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </None>
+    <None Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_internalmap.inl">
+      <Filter>ref\jsoncpp\impl</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="laser_kbd.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

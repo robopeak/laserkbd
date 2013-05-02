@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<intrinsics_distort_51581cd3 type_id="opencv-matrix">
+  <rows>1</rows>
+  <cols>5</cols>
+  <dt>d</dt>
+  <data>
+    -4.582486e-001 1.543164e-001 -2.119867e-003 3.706877e-003 0.000000e+000</data></intrinsics_distort_51581cd3>
+</opencv_storage>

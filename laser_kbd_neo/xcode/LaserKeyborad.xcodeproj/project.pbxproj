@@ -1,0 +1,740 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		681334B0170E74A4009B8CE2 /* libpng15.15.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 681334AF170E74A4009B8CE2 /* libpng15.15.dylib */; };
+		681334B1170E74BD009B8CE2 /* libpng15.15.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 681334AF170E74A4009B8CE2 /* libpng15.15.dylib */; };
+		68A160CD1702909C0086B38B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A160CC1702909C0086B38B /* Cocoa.framework */; };
+		68A160D71702909C0086B38B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68A160D51702909C0086B38B /* InfoPlist.strings */; };
+		68A160D91702909C0086B38B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68A160D81702909C0086B38B /* main.mm */; };
+		68A160EC1702949F0086B38B /* rplogo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 68A160EB1702949F0086B38B /* rplogo.icns */; };
+		68A1612C170298B30086B38B /* blobfinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160F1170298B30086B38B /* blobfinder.cpp */; };
+		68A1612D170298B30086B38B /* camera_selector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160F3170298B30086B38B /* camera_selector.cpp */; };
+		68A1612E170298B30086B38B /* cameraundistortor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160F5170298B30086B38B /* cameraundistortor.cpp */; };
+		68A1612F170298B30086B38B /* config_mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160F8170298B30086B38B /* config_mgr.cpp */; };
+		68A16130170298B30086B38B /* cv_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160FB170298B30086B38B /* cv_utils.cpp */; };
+		68A16131170298B30086B38B /* cvpipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160FD170298B30086B38B /* cvpipeline.cpp */; };
+		68A16132170298B30086B38B /* cvpositionest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A160FF170298B30086B38B /* cvpositionest.cpp */; };
+		68A16133170298B30086B38B /* cvui_button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A16107170298B30086B38B /* cvui_button.cpp */; };
+		68A16134170298B30086B38B /* cvui_container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A16108170298B30086B38B /* cvui_container.cpp */; };
+		68A16135170298B30086B38B /* cvui_imageframe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A16109170298B30086B38B /* cvui_imageframe.cpp */; };
+		68A16136170298B30086B38B /* keyboard_emu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A1610C170298B30086B38B /* keyboard_emu.cpp */; };
+		68A16137170298B30086B38B /* layout_provider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A1610E170298B30086B38B /* layout_provider.cpp */; };
+		68A16138170298B30086B38B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A16110170298B30086B38B /* main.cpp */; };
+		68A1613F170298B30086B38B /* resource_mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A16125170298B30086B38B /* resource_mgr.cpp */; };
+		68A16140170298B30086B38B /* sketch_pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A16128170298B30086B38B /* sketch_pad.cpp */; };
+		68A16141170298B30086B38B /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A1612A170298B30086B38B /* utils.cpp */; };
+		68A1614E17029B810086B38B /* cap_qtkit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68A1614B17029B810086B38B /* cap_qtkit.mm */; };
+		68A1615017029E150086B38B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A1614F17029E150086B38B /* ApplicationServices.framework */; };
+		68A1615217029F2F0086B38B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A1615117029F2E0086B38B /* CoreFoundation.framework */; };
+		68A161581702A0490086B38B /* keyinjector_macOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A161531702A0490086B38B /* keyinjector_macOS.cpp */; };
+		68A161591702A0490086B38B /* platform_language_macOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A161541702A0490086B38B /* platform_language_macOS.cpp */; };
+		68A1615A1702A0490086B38B /* powervideocap_macOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68A161551702A0490086B38B /* powervideocap_macOS.mm */; };
+		68A1615B1702A0490086B38B /* productid_macOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A161561702A0490086B38B /* productid_macOS.cpp */; };
+		68A1615C1702A0490086B38B /* updatechecker_macOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68A161571702A0490086B38B /* updatechecker_macOS.mm */; };
+		68A161681702A3C80086B38B /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A161621702A3C80086B38B /* json_reader.cpp */; };
+		68A161691702A3C80086B38B /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A161631702A3C80086B38B /* json_value.cpp */; };
+		68A1616B1702A3C80086B38B /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A161651702A3C80086B38B /* json_writer.cpp */; };
+		68A1616D1702A42A0086B38B /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A1616C1702A42A0086B38B /* QTKit.framework */; };
+		68A161711702C3EF0086B38B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A161701702C3EF0086B38B /* IOKit.framework */; };
+		68A161B71702D44A0086B38B /* UVCCameraControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A161B61702D44A0086B38B /* UVCCameraControl.m */; };
+		68A161C61702DF780086B38B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A161C41702DF780086B38B /* CoreMedia.framework */; };
+		68A161C71702DF780086B38B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A161C51702DF780086B38B /* CoreVideo.framework */; };
+		68A161CA1702ED3A0086B38B /* res in Resources */ = {isa = PBXBuildFile; fileRef = 68A161C91702ED3A0086B38B /* res */; };
+		68E002771705E0AD00D2D83C /* libopencv_calib3d.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E0026B1705E0AD00D2D83C /* libopencv_calib3d.2.3.dylib */; };
+		68E002781705E0AD00D2D83C /* libopencv_contrib.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E0026C1705E0AD00D2D83C /* libopencv_contrib.2.3.dylib */; };
+		68E002791705E0AD00D2D83C /* libopencv_core.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E0026D1705E0AD00D2D83C /* libopencv_core.2.3.dylib */; };
+		68E0027A1705E0AD00D2D83C /* libopencv_features2d.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E0026E1705E0AD00D2D83C /* libopencv_features2d.2.3.dylib */; };
+		68E0027B1705E0AD00D2D83C /* libopencv_flann.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E0026F1705E0AD00D2D83C /* libopencv_flann.2.3.dylib */; };
+		68E0027C1705E0AD00D2D83C /* libopencv_gpu.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002701705E0AD00D2D83C /* libopencv_gpu.2.3.dylib */; };
+		68E0027D1705E0AD00D2D83C /* libopencv_highgui.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002711705E0AD00D2D83C /* libopencv_highgui.2.3.dylib */; };
+		68E0027E1705E0AD00D2D83C /* libopencv_imgproc.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002721705E0AD00D2D83C /* libopencv_imgproc.2.3.dylib */; };
+		68E0027F1705E0AD00D2D83C /* libopencv_legacy.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002731705E0AD00D2D83C /* libopencv_legacy.2.3.dylib */; };
+		68E002801705E0AD00D2D83C /* libopencv_ml.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002741705E0AD00D2D83C /* libopencv_ml.2.3.dylib */; };
+		68E002811705E0AD00D2D83C /* libopencv_objdetect.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002751705E0AD00D2D83C /* libopencv_objdetect.2.3.dylib */; };
+		68E002821705E0AD00D2D83C /* libopencv_video.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E002761705E0AD00D2D83C /* libopencv_video.2.3.dylib */; };
+		68E002831705E0B900D2D83C /* libopencv_calib3d.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E0026B1705E0AD00D2D83C /* libopencv_calib3d.2.3.dylib */; };
+		68E002841705E0B900D2D83C /* libopencv_contrib.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E0026C1705E0AD00D2D83C /* libopencv_contrib.2.3.dylib */; };
+		68E002851705E0B900D2D83C /* libopencv_core.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E0026D1705E0AD00D2D83C /* libopencv_core.2.3.dylib */; };
+		68E002861705E0B900D2D83C /* libopencv_features2d.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E0026E1705E0AD00D2D83C /* libopencv_features2d.2.3.dylib */; };
+		68E002871705E0B900D2D83C /* libopencv_flann.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E0026F1705E0AD00D2D83C /* libopencv_flann.2.3.dylib */; };
+		68E002881705E0B900D2D83C /* libopencv_gpu.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002701705E0AD00D2D83C /* libopencv_gpu.2.3.dylib */; };
+		68E002891705E0B900D2D83C /* libopencv_highgui.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002711705E0AD00D2D83C /* libopencv_highgui.2.3.dylib */; };
+		68E0028A1705E0B900D2D83C /* libopencv_imgproc.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002721705E0AD00D2D83C /* libopencv_imgproc.2.3.dylib */; };
+		68E0028B1705E0B900D2D83C /* libopencv_legacy.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002731705E0AD00D2D83C /* libopencv_legacy.2.3.dylib */; };
+		68E0028C1705E0B900D2D83C /* libopencv_ml.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002741705E0AD00D2D83C /* libopencv_ml.2.3.dylib */; };
+		68E0028D1705E0B900D2D83C /* libopencv_objdetect.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002751705E0AD00D2D83C /* libopencv_objdetect.2.3.dylib */; };
+		68E0028E1705E0B900D2D83C /* libopencv_video.2.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 68E002761705E0AD00D2D83C /* libopencv_video.2.3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		684475D1170562C600D04D60 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				681334B1170E74BD009B8CE2 /* libpng15.15.dylib in Copy Files */,
+				68E002831705E0B900D2D83C /* libopencv_calib3d.2.3.dylib in Copy Files */,
+				68E002841705E0B900D2D83C /* libopencv_contrib.2.3.dylib in Copy Files */,
+				68E002851705E0B900D2D83C /* libopencv_core.2.3.dylib in Copy Files */,
+				68E002861705E0B900D2D83C /* libopencv_features2d.2.3.dylib in Copy Files */,
+				68E002871705E0B900D2D83C /* libopencv_flann.2.3.dylib in Copy Files */,
+				68E002881705E0B900D2D83C /* libopencv_gpu.2.3.dylib in Copy Files */,
+				68E002891705E0B900D2D83C /* libopencv_highgui.2.3.dylib in Copy Files */,
+				68E0028A1705E0B900D2D83C /* libopencv_imgproc.2.3.dylib in Copy Files */,
+				68E0028B1705E0B900D2D83C /* libopencv_legacy.2.3.dylib in Copy Files */,
+				68E0028C1705E0B900D2D83C /* libopencv_ml.2.3.dylib in Copy Files */,
+				68E0028D1705E0B900D2D83C /* libopencv_objdetect.2.3.dylib in Copy Files */,
+				68E0028E1705E0B900D2D83C /* libopencv_video.2.3.dylib in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		681334AF170E74A4009B8CE2 /* libpng15.15.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpng15.15.dylib; sourceTree = "<group>"; };
+		68A160C91702909C0086B38B /* LaserKeyborad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaserKeyborad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68A160CC1702909C0086B38B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		68A160CF1702909C0086B38B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		68A160D01702909C0086B38B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		68A160D11702909C0086B38B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		68A160D41702909C0086B38B /* LaserKeyborad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaserKeyborad-Info.plist"; sourceTree = "<group>"; };
+		68A160D61702909C0086B38B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		68A160D81702909C0086B38B /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		68A160DA1702909C0086B38B /* LaserKeyborad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LaserKeyborad-Prefix.pch"; sourceTree = "<group>"; };
+		68A160DC1702909C0086B38B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		68A160EB1702949F0086B38B /* rplogo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rplogo.icns; sourceTree = "<group>"; };
+		68A160F1170298B30086B38B /* blobfinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = blobfinder.cpp; path = ../src/blobfinder.cpp; sourceTree = "<group>"; };
+		68A160F2170298B30086B38B /* blobfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blobfinder.h; path = ../src/blobfinder.h; sourceTree = "<group>"; };
+		68A160F3170298B30086B38B /* camera_selector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = camera_selector.cpp; path = ../src/camera_selector.cpp; sourceTree = "<group>"; };
+		68A160F4170298B30086B38B /* camera_selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera_selector.h; path = ../src/camera_selector.h; sourceTree = "<group>"; };
+		68A160F5170298B30086B38B /* cameraundistortor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cameraundistortor.cpp; path = ../src/cameraundistortor.cpp; sourceTree = "<group>"; };
+		68A160F6170298B30086B38B /* cameraundistortor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cameraundistortor.h; path = ../src/cameraundistortor.h; sourceTree = "<group>"; };
+		68A160F7170298B30086B38B /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = ../src/common.h; sourceTree = "<group>"; };
+		68A160F8170298B30086B38B /* config_mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = config_mgr.cpp; path = ../src/config_mgr.cpp; sourceTree = "<group>"; };
+		68A160F9170298B30086B38B /* config_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config_mgr.h; path = ../src/config_mgr.h; sourceTree = "<group>"; };
+		68A160FA170298B30086B38B /* cv_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cv_common.h; path = ../src/cv_common.h; sourceTree = "<group>"; };
+		68A160FB170298B30086B38B /* cv_utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cv_utils.cpp; path = ../src/cv_utils.cpp; sourceTree = "<group>"; };
+		68A160FC170298B30086B38B /* cv_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cv_utils.h; path = ../src/cv_utils.h; sourceTree = "<group>"; };
+		68A160FD170298B30086B38B /* cvpipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cvpipeline.cpp; path = ../src/cvpipeline.cpp; sourceTree = "<group>"; };
+		68A160FE170298B30086B38B /* cvpipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cvpipeline.h; path = ../src/cvpipeline.h; sourceTree = "<group>"; };
+		68A160FF170298B30086B38B /* cvpositionest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cvpositionest.cpp; path = ../src/cvpositionest.cpp; sourceTree = "<group>"; };
+		68A16100170298B30086B38B /* cvpositionest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cvpositionest.h; path = ../src/cvpositionest.h; sourceTree = "<group>"; };
+		68A16102170298B30086B38B /* cvui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvui.h; sourceTree = "<group>"; };
+		68A16103170298B30086B38B /* cvui_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvui_base.h; sourceTree = "<group>"; };
+		68A16104170298B30086B38B /* cvui_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvui_button.h; sourceTree = "<group>"; };
+		68A16105170298B30086B38B /* cvui_imageframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvui_imageframe.h; sourceTree = "<group>"; };
+		68A16107170298B30086B38B /* cvui_button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cvui_button.cpp; sourceTree = "<group>"; };
+		68A16108170298B30086B38B /* cvui_container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cvui_container.cpp; sourceTree = "<group>"; };
+		68A16109170298B30086B38B /* cvui_imageframe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cvui_imageframe.cpp; sourceTree = "<group>"; };
+		68A1610A170298B30086B38B /* dev_conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dev_conf.h; path = ../src/dev_conf.h; sourceTree = "<group>"; };
+		68A1610C170298B30086B38B /* keyboard_emu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard_emu.cpp; sourceTree = "<group>"; };
+		68A1610D170298B30086B38B /* keyboard_emu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyboard_emu.h; sourceTree = "<group>"; };
+		68A1610E170298B30086B38B /* layout_provider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layout_provider.cpp; sourceTree = "<group>"; };
+		68A1610F170298B30086B38B /* layout_provider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layout_provider.h; sourceTree = "<group>"; };
+		68A16110170298B30086B38B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		68A16125170298B30086B38B /* resource_mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = resource_mgr.cpp; path = ../src/resource_mgr.cpp; sourceTree = "<group>"; };
+		68A16126170298B30086B38B /* resource_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource_mgr.h; path = ../src/resource_mgr.h; sourceTree = "<group>"; };
+		68A16128170298B30086B38B /* sketch_pad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sketch_pad.cpp; sourceTree = "<group>"; };
+		68A16129170298B30086B38B /* sketch_pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sketch_pad.h; sourceTree = "<group>"; };
+		68A1612A170298B30086B38B /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utils.cpp; path = ../src/utils.cpp; sourceTree = "<group>"; };
+		68A1612B170298B30086B38B /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utils.h; path = ../src/utils.h; sourceTree = "<group>"; };
+		68A16143170298DF0086B38B /* keyinjector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyinjector.h; sourceTree = "<group>"; };
+		68A16144170298DF0086B38B /* platform_language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform_language.h; sourceTree = "<group>"; };
+		68A16145170298DF0086B38B /* PowerVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerVideoCapture.h; sourceTree = "<group>"; };
+		68A16146170298DF0086B38B /* productid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productid.h; sourceTree = "<group>"; };
+		68A16147170298DF0086B38B /* updatechecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updatechecker.h; sourceTree = "<group>"; };
+		68A1614B17029B810086B38B /* cap_qtkit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = cap_qtkit.mm; sourceTree = "<group>"; };
+		68A1614D17029B810086B38B /* arch_inc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arch_inc.h; sourceTree = "<group>"; };
+		68A1614F17029E150086B38B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		68A1615117029F2E0086B38B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		68A161531702A0490086B38B /* keyinjector_macOS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = keyinjector_macOS.cpp; sourceTree = "<group>"; };
+		68A161541702A0490086B38B /* platform_language_macOS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = platform_language_macOS.cpp; sourceTree = "<group>"; };
+		68A161551702A0490086B38B /* powervideocap_macOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = powervideocap_macOS.mm; sourceTree = "<group>"; };
+		68A161561702A0490086B38B /* productid_macOS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = productid_macOS.cpp; sourceTree = "<group>"; };
+		68A161571702A0490086B38B /* updatechecker_macOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = updatechecker_macOS.mm; sourceTree = "<group>"; };
+		68A1615F1702A3C80086B38B /* json_batchallocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = json_batchallocator.h; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_batchallocator.h"; sourceTree = "<group>"; };
+		68A161601702A3C80086B38B /* json_internalarray.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = json_internalarray.inl; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_internalarray.inl"; sourceTree = "<group>"; };
+		68A161611702A3C80086B38B /* json_internalmap.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = json_internalmap.inl; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_internalmap.inl"; sourceTree = "<group>"; };
+		68A161621702A3C80086B38B /* json_reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = json_reader.cpp; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_reader.cpp"; sourceTree = "<group>"; };
+		68A161631702A3C80086B38B /* json_value.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = json_value.cpp; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_value.cpp"; sourceTree = "<group>"; };
+		68A161641702A3C80086B38B /* json_valueiterator.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = json_valueiterator.inl; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_valueiterator.inl"; sourceTree = "<group>"; };
+		68A161651702A3C80086B38B /* json_writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = json_writer.cpp; path = "../ref/jsoncpp-src-0.5.0/src/lib_json/json_writer.cpp"; sourceTree = "<group>"; };
+		68A1616C1702A42A0086B38B /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		68A1616E1702A4880086B38B /* cap_qtkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cap_qtkit.h; sourceTree = "<group>"; };
+		68A161701702C3EF0086B38B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		68A161B51702D44A0086B38B /* UVCCameraControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCCameraControl.h; sourceTree = "<group>"; };
+		68A161B61702D44A0086B38B /* UVCCameraControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCCameraControl.m; sourceTree = "<group>"; };
+		68A161C41702DF780086B38B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		68A161C51702DF780086B38B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		68A161C91702ED3A0086B38B /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../res; sourceTree = "<group>"; };
+		68E0026B1705E0AD00D2D83C /* libopencv_calib3d.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_calib3d.2.3.dylib; sourceTree = "<group>"; };
+		68E0026C1705E0AD00D2D83C /* libopencv_contrib.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_contrib.2.3.dylib; sourceTree = "<group>"; };
+		68E0026D1705E0AD00D2D83C /* libopencv_core.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_core.2.3.dylib; sourceTree = "<group>"; };
+		68E0026E1705E0AD00D2D83C /* libopencv_features2d.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_features2d.2.3.dylib; sourceTree = "<group>"; };
+		68E0026F1705E0AD00D2D83C /* libopencv_flann.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_flann.2.3.dylib; sourceTree = "<group>"; };
+		68E002701705E0AD00D2D83C /* libopencv_gpu.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_gpu.2.3.dylib; sourceTree = "<group>"; };
+		68E002711705E0AD00D2D83C /* libopencv_highgui.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_highgui.2.3.dylib; sourceTree = "<group>"; };
+		68E002721705E0AD00D2D83C /* libopencv_imgproc.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_imgproc.2.3.dylib; sourceTree = "<group>"; };
+		68E002731705E0AD00D2D83C /* libopencv_legacy.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_legacy.2.3.dylib; sourceTree = "<group>"; };
+		68E002741705E0AD00D2D83C /* libopencv_ml.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_ml.2.3.dylib; sourceTree = "<group>"; };
+		68E002751705E0AD00D2D83C /* libopencv_objdetect.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_objdetect.2.3.dylib; sourceTree = "<group>"; };
+		68E002761705E0AD00D2D83C /* libopencv_video.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_video.2.3.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68A160C61702909C0086B38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				681334B0170E74A4009B8CE2 /* libpng15.15.dylib in Frameworks */,
+				68A161C61702DF780086B38B /* CoreMedia.framework in Frameworks */,
+				68A161C71702DF780086B38B /* CoreVideo.framework in Frameworks */,
+				68A161711702C3EF0086B38B /* IOKit.framework in Frameworks */,
+				68A1616D1702A42A0086B38B /* QTKit.framework in Frameworks */,
+				68A1615217029F2F0086B38B /* CoreFoundation.framework in Frameworks */,
+				68A1615017029E150086B38B /* ApplicationServices.framework in Frameworks */,
+				68A160CD1702909C0086B38B /* Cocoa.framework in Frameworks */,
+				68E002771705E0AD00D2D83C /* libopencv_calib3d.2.3.dylib in Frameworks */,
+				68E002781705E0AD00D2D83C /* libopencv_contrib.2.3.dylib in Frameworks */,
+				68E002791705E0AD00D2D83C /* libopencv_core.2.3.dylib in Frameworks */,
+				68E0027A1705E0AD00D2D83C /* libopencv_features2d.2.3.dylib in Frameworks */,
+				68E0027B1705E0AD00D2D83C /* libopencv_flann.2.3.dylib in Frameworks */,
+				68E0027C1705E0AD00D2D83C /* libopencv_gpu.2.3.dylib in Frameworks */,
+				68E0027D1705E0AD00D2D83C /* libopencv_highgui.2.3.dylib in Frameworks */,
+				68E0027E1705E0AD00D2D83C /* libopencv_imgproc.2.3.dylib in Frameworks */,
+				68E0027F1705E0AD00D2D83C /* libopencv_legacy.2.3.dylib in Frameworks */,
+				68E002801705E0AD00D2D83C /* libopencv_ml.2.3.dylib in Frameworks */,
+				68E002811705E0AD00D2D83C /* libopencv_objdetect.2.3.dylib in Frameworks */,
+				68E002821705E0AD00D2D83C /* libopencv_video.2.3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68A160C01702909C0086B38B = {
+			isa = PBXGroup;
+			children = (
+				68A161721702C7970086B38B /* Resource */,
+				68A1616F1702B3BD0086B38B /* Frameworks */,
+				68A1615D1702A3A90086B38B /* ref */,
+				68A160F0170298570086B38B /* source */,
+				68A160D21702909C0086B38B /* LaserKeyboradMacEntry */,
+				68A160CB1702909C0086B38B /* Frameworks */,
+				68A160CA1702909C0086B38B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68A160CA1702909C0086B38B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68A160C91702909C0086B38B /* LaserKeyborad.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68A160CB1702909C0086B38B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68A160CC1702909C0086B38B /* Cocoa.framework */,
+				68A160CE1702909C0086B38B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68A160CE1702909C0086B38B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68A160CF1702909C0086B38B /* AppKit.framework */,
+				68A160D01702909C0086B38B /* CoreData.framework */,
+				68A160D11702909C0086B38B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		68A160D21702909C0086B38B /* LaserKeyboradMacEntry */ = {
+			isa = PBXGroup;
+			children = (
+				68A160D31702909C0086B38B /* Supporting Files */,
+			);
+			name = LaserKeyboradMacEntry;
+			path = LaserKeyborad;
+			sourceTree = "<group>";
+		};
+		68A160D31702909C0086B38B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68A160D41702909C0086B38B /* LaserKeyborad-Info.plist */,
+				68A160D51702909C0086B38B /* InfoPlist.strings */,
+				68A160D81702909C0086B38B /* main.mm */,
+				68A160DA1702909C0086B38B /* LaserKeyborad-Prefix.pch */,
+				68A160DB1702909C0086B38B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68A160F0170298570086B38B /* source */ = {
+			isa = PBXGroup;
+			children = (
+				68A160F1170298B30086B38B /* blobfinder.cpp */,
+				68A160F2170298B30086B38B /* blobfinder.h */,
+				68A160F3170298B30086B38B /* camera_selector.cpp */,
+				68A160F4170298B30086B38B /* camera_selector.h */,
+				68A160F5170298B30086B38B /* cameraundistortor.cpp */,
+				68A160F6170298B30086B38B /* cameraundistortor.h */,
+				68A160F7170298B30086B38B /* common.h */,
+				68A160F8170298B30086B38B /* config_mgr.cpp */,
+				68A160F9170298B30086B38B /* config_mgr.h */,
+				68A160FA170298B30086B38B /* cv_common.h */,
+				68A160FB170298B30086B38B /* cv_utils.cpp */,
+				68A160FC170298B30086B38B /* cv_utils.h */,
+				68A160FD170298B30086B38B /* cvpipeline.cpp */,
+				68A160FE170298B30086B38B /* cvpipeline.h */,
+				68A160FF170298B30086B38B /* cvpositionest.cpp */,
+				68A16100170298B30086B38B /* cvpositionest.h */,
+				68A16101170298B30086B38B /* cvui */,
+				68A1610A170298B30086B38B /* dev_conf.h */,
+				68A1610B170298B30086B38B /* keyboard_emu */,
+				68A16110170298B30086B38B /* main.cpp */,
+				68A16111170298B30086B38B /* port */,
+				68A16125170298B30086B38B /* resource_mgr.cpp */,
+				68A16126170298B30086B38B /* resource_mgr.h */,
+				68A16127170298B30086B38B /* sketchpad */,
+				68A1612A170298B30086B38B /* utils.cpp */,
+				68A1612B170298B30086B38B /* utils.h */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
+		68A16101170298B30086B38B /* cvui */ = {
+			isa = PBXGroup;
+			children = (
+				68A16102170298B30086B38B /* cvui.h */,
+				68A16103170298B30086B38B /* cvui_base.h */,
+				68A16104170298B30086B38B /* cvui_button.h */,
+				68A16105170298B30086B38B /* cvui_imageframe.h */,
+				68A16106170298B30086B38B /* impl */,
+			);
+			name = cvui;
+			path = ../src/cvui;
+			sourceTree = "<group>";
+		};
+		68A16106170298B30086B38B /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				68A16107170298B30086B38B /* cvui_button.cpp */,
+				68A16108170298B30086B38B /* cvui_container.cpp */,
+				68A16109170298B30086B38B /* cvui_imageframe.cpp */,
+			);
+			path = impl;
+			sourceTree = "<group>";
+		};
+		68A1610B170298B30086B38B /* keyboard_emu */ = {
+			isa = PBXGroup;
+			children = (
+				68A1610C170298B30086B38B /* keyboard_emu.cpp */,
+				68A1610D170298B30086B38B /* keyboard_emu.h */,
+				68A1610E170298B30086B38B /* layout_provider.cpp */,
+				68A1610F170298B30086B38B /* layout_provider.h */,
+			);
+			name = keyboard_emu;
+			path = ../src/keyboard_emu;
+			sourceTree = "<group>";
+		};
+		68A16111170298B30086B38B /* port */ = {
+			isa = PBXGroup;
+			children = (
+				68A1614817029B810086B38B /* macos */,
+				68A16142170298DF0086B38B /* common */,
+			);
+			name = port;
+			path = ../src/port;
+			sourceTree = "<group>";
+		};
+		68A16127170298B30086B38B /* sketchpad */ = {
+			isa = PBXGroup;
+			children = (
+				68A16128170298B30086B38B /* sketch_pad.cpp */,
+				68A16129170298B30086B38B /* sketch_pad.h */,
+			);
+			name = sketchpad;
+			path = ../src/sketchpad;
+			sourceTree = "<group>";
+		};
+		68A16142170298DF0086B38B /* common */ = {
+			isa = PBXGroup;
+			children = (
+				68A16143170298DF0086B38B /* keyinjector.h */,
+				68A16144170298DF0086B38B /* platform_language.h */,
+				68A16145170298DF0086B38B /* PowerVideoCapture.h */,
+				68A16146170298DF0086B38B /* productid.h */,
+				68A16147170298DF0086B38B /* updatechecker.h */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		68A1614817029B810086B38B /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				68A161531702A0490086B38B /* keyinjector_macOS.cpp */,
+				68A161541702A0490086B38B /* platform_language_macOS.cpp */,
+				68A161551702A0490086B38B /* powervideocap_macOS.mm */,
+				68A161561702A0490086B38B /* productid_macOS.cpp */,
+				68A161571702A0490086B38B /* updatechecker_macOS.mm */,
+				68A1614917029B810086B38B /* 3rd */,
+				68A1614C17029B810086B38B /* inc */,
+			);
+			path = macos;
+			sourceTree = "<group>";
+		};
+		68A1614917029B810086B38B /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				68A161B51702D44A0086B38B /* UVCCameraControl.h */,
+				68A161B61702D44A0086B38B /* UVCCameraControl.m */,
+				68A1614A17029B810086B38B /* opencv */,
+			);
+			path = 3rd;
+			sourceTree = "<group>";
+		};
+		68A1614A17029B810086B38B /* opencv */ = {
+			isa = PBXGroup;
+			children = (
+				68A1614B17029B810086B38B /* cap_qtkit.mm */,
+				68A1616E1702A4880086B38B /* cap_qtkit.h */,
+			);
+			path = opencv;
+			sourceTree = "<group>";
+		};
+		68A1614C17029B810086B38B /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				68A1614D17029B810086B38B /* arch_inc.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		68A1615D1702A3A90086B38B /* ref */ = {
+			isa = PBXGroup;
+			children = (
+				68A1615E1702A3AF0086B38B /* jsoncpp */,
+			);
+			name = ref;
+			sourceTree = "<group>";
+		};
+		68A1615E1702A3AF0086B38B /* jsoncpp */ = {
+			isa = PBXGroup;
+			children = (
+				68A1615F1702A3C80086B38B /* json_batchallocator.h */,
+				68A161601702A3C80086B38B /* json_internalarray.inl */,
+				68A161611702A3C80086B38B /* json_internalmap.inl */,
+				68A161621702A3C80086B38B /* json_reader.cpp */,
+				68A161631702A3C80086B38B /* json_value.cpp */,
+				68A161641702A3C80086B38B /* json_valueiterator.inl */,
+				68A161651702A3C80086B38B /* json_writer.cpp */,
+			);
+			name = jsoncpp;
+			sourceTree = "<group>";
+		};
+		68A1616F1702B3BD0086B38B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68E0026B1705E0AD00D2D83C /* libopencv_calib3d.2.3.dylib */,
+				68E0026C1705E0AD00D2D83C /* libopencv_contrib.2.3.dylib */,
+				681334AF170E74A4009B8CE2 /* libpng15.15.dylib */,
+				68E0026D1705E0AD00D2D83C /* libopencv_core.2.3.dylib */,
+				68E0026E1705E0AD00D2D83C /* libopencv_features2d.2.3.dylib */,
+				68E0026F1705E0AD00D2D83C /* libopencv_flann.2.3.dylib */,
+				68E002701705E0AD00D2D83C /* libopencv_gpu.2.3.dylib */,
+				68E002711705E0AD00D2D83C /* libopencv_highgui.2.3.dylib */,
+				68E002721705E0AD00D2D83C /* libopencv_imgproc.2.3.dylib */,
+				68E002731705E0AD00D2D83C /* libopencv_legacy.2.3.dylib */,
+				68E002741705E0AD00D2D83C /* libopencv_ml.2.3.dylib */,
+				68E002751705E0AD00D2D83C /* libopencv_objdetect.2.3.dylib */,
+				68E002761705E0AD00D2D83C /* libopencv_video.2.3.dylib */,
+				68A161701702C3EF0086B38B /* IOKit.framework */,
+				68A161C41702DF780086B38B /* CoreMedia.framework */,
+				68A161C51702DF780086B38B /* CoreVideo.framework */,
+				68A1614F17029E150086B38B /* ApplicationServices.framework */,
+				68A1615117029F2E0086B38B /* CoreFoundation.framework */,
+				68A1616C1702A42A0086B38B /* QTKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68A161721702C7970086B38B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				68A161C91702ED3A0086B38B /* res */,
+				68A160EB1702949F0086B38B /* rplogo.icns */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68A160C81702909C0086B38B /* LaserKeyborad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68A160E61702909C0086B38B /* Build configuration list for PBXNativeTarget "LaserKeyborad" */;
+			buildPhases = (
+				68A160C51702909C0086B38B /* Sources */,
+				68A160C61702909C0086B38B /* Frameworks */,
+				68A160C71702909C0086B38B /* Resources */,
+				684475D1170562C600D04D60 /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaserKeyborad;
+			productName = LaserKeyborad;
+			productReference = 68A160C91702909C0086B38B /* LaserKeyborad.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68A160C11702909C0086B38B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = laserkbd;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = RoboPeak;
+			};
+			buildConfigurationList = 68A160C41702909C0086B38B /* Build configuration list for PBXProject "LaserKeyborad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 68A160C01702909C0086B38B;
+			productRefGroup = 68A160CA1702909C0086B38B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68A160C81702909C0086B38B /* LaserKeyborad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68A160C71702909C0086B38B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A160D71702909C0086B38B /* InfoPlist.strings in Resources */,
+				68A160EC1702949F0086B38B /* rplogo.icns in Resources */,
+				68A161CA1702ED3A0086B38B /* res in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68A160C51702909C0086B38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A160D91702909C0086B38B /* main.mm in Sources */,
+				68A1612C170298B30086B38B /* blobfinder.cpp in Sources */,
+				68A1612D170298B30086B38B /* camera_selector.cpp in Sources */,
+				68A1612E170298B30086B38B /* cameraundistortor.cpp in Sources */,
+				68A1612F170298B30086B38B /* config_mgr.cpp in Sources */,
+				68A16130170298B30086B38B /* cv_utils.cpp in Sources */,
+				68A16131170298B30086B38B /* cvpipeline.cpp in Sources */,
+				68A16132170298B30086B38B /* cvpositionest.cpp in Sources */,
+				68A16133170298B30086B38B /* cvui_button.cpp in Sources */,
+				68A16134170298B30086B38B /* cvui_container.cpp in Sources */,
+				68A16135170298B30086B38B /* cvui_imageframe.cpp in Sources */,
+				68A16136170298B30086B38B /* keyboard_emu.cpp in Sources */,
+				68A16137170298B30086B38B /* layout_provider.cpp in Sources */,
+				68A16138170298B30086B38B /* main.cpp in Sources */,
+				68A1613F170298B30086B38B /* resource_mgr.cpp in Sources */,
+				68A16140170298B30086B38B /* sketch_pad.cpp in Sources */,
+				68A16141170298B30086B38B /* utils.cpp in Sources */,
+				68A1614E17029B810086B38B /* cap_qtkit.mm in Sources */,
+				68A161581702A0490086B38B /* keyinjector_macOS.cpp in Sources */,
+				68A161591702A0490086B38B /* platform_language_macOS.cpp in Sources */,
+				68A1615A1702A0490086B38B /* powervideocap_macOS.mm in Sources */,
+				68A1615B1702A0490086B38B /* productid_macOS.cpp in Sources */,
+				68A1615C1702A0490086B38B /* updatechecker_macOS.mm in Sources */,
+				68A161681702A3C80086B38B /* json_reader.cpp in Sources */,
+				68A161691702A3C80086B38B /* json_value.cpp in Sources */,
+				68A1616B1702A3C80086B38B /* json_writer.cpp in Sources */,
+				68A161B71702D44A0086B38B /* UVCCameraControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		68A160D51702909C0086B38B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68A160D61702909C0086B38B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		68A160DB1702909C0086B38B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68A160DC1702909C0086B38B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		68A160E41702909C0086B38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_MACOS,
+					"_DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../../../ref/inc/opencv_new,
+					../../../../../ref/inc/libusb,
+					"../ref/libkdtree++_0.7.0",
+					"../ref/curl-7.29.0/include",
+					"../ref/jsoncpp-src-0.5.0/include",
+					../src/cvui,
+					../src,
+				);
+				LIBRARY_SEARCH_PATHS = "../../../../../build/obj/OpenCV-2.3.1/build/lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		68A160E51702909C0086B38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = _MACOS;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../../../ref/inc/opencv_new,
+					../../../../../ref/inc/libusb,
+					"../ref/libkdtree++_0.7.0",
+					"../ref/curl-7.29.0/include",
+					"../ref/jsoncpp-src-0.5.0/include",
+					../src/cvui,
+					../src,
+				);
+				LIBRARY_SEARCH_PATHS = "../../../../../build/obj/OpenCV-2.3.1/build/lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx10.7;
+			};
+			name = Release;
+		};
+		68A160E71702909C0086B38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaserKeyborad/LaserKeyborad-Prefix.pch";
+				INFOPLIST_FILE = "LaserKeyborad/LaserKeyborad-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				LIBRARY_SEARCH_PATHS = (
+					.,
+					"\"$(SRCROOT)\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		68A160E81702909C0086B38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaserKeyborad/LaserKeyborad-Prefix.pch";
+				INFOPLIST_FILE = "LaserKeyborad/LaserKeyborad-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				LIBRARY_SEARCH_PATHS = (
+					.,
+					"\"$(SRCROOT)\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68A160C41702909C0086B38B /* Build configuration list for PBXProject "LaserKeyborad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A160E41702909C0086B38B /* Debug */,
+				68A160E51702909C0086B38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68A160E61702909C0086B38B /* Build configuration list for PBXNativeTarget "LaserKeyborad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A160E71702909C0086B38B /* Debug */,
+				68A160E81702909C0086B38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68A160C11702909C0086B38B /* Project object */;
+}

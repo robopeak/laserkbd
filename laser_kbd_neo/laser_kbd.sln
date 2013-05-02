@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "laser_kbd", "laser_kbd.vcxproj", "{FAA1ED63-0CBD-4B01-B381-0D9A833BF36C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAA1ED63-0CBD-4B01-B381-0D9A833BF36C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAA1ED63-0CBD-4B01-B381-0D9A833BF36C}.Debug|Win32.Build.0 = Debug|Win32
+		{FAA1ED63-0CBD-4B01-B381-0D9A833BF36C}.Release|Win32.ActiveCfg = Release|Win32
+		{FAA1ED63-0CBD-4B01-B381-0D9A833BF36C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

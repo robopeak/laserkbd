@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FAA1ED63-0CBD-4B01-B381-0D9A833BF36C}</ProjectGuid>
+    <RootNamespace>laser_kbd</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfAtl>false</UseOfAtl>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfAtl>false</UseOfAtl>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\sdkpack\ref\inc\libusb;..\sdkpack\ref\inc\opencv_new;ref\libkdtree++_0.7.0;ref\curl-7.29.0\include;ref\jsoncpp-src-0.5.0\include;ref\jsoncpp-src-0.5.0\src;src;src\cvui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_core231.lib;opencv_legacy231.lib;opencv_imgproc231.lib;opencv_highgui231.lib;opencv_calib3d231.lib;libusb-1.0.lib;libcurl.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\sdkpack\ref\lib\win32\x86;ref\curl-7.29.0\lib\LIB-Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\sdkpack\ref\inc\libusb;..\sdkpack\ref\inc\opencv_new;ref\libkdtree++_0.7.0;ref\curl-7.29.0\include;ref\jsoncpp-src-0.5.0\include;ref\jsoncpp-src-0.5.0\src;src;src\cvui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_core231.lib;opencv_legacy231.lib;opencv_imgproc231.lib;opencv_highgui231.lib;opencv_calib3d231.lib;libusb-1.0.lib;libcurl.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\sdkpack\ref\lib\win32\x86;ref\curl-7.29.0\lib\LIB-Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_reader.cpp" />
+    <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_value.cpp" />
+    <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_writer.cpp" />
+    <ClCompile Include="src\blobfinder.cpp" />
+    <ClCompile Include="src\cameraundistortor.cpp" />
+    <ClCompile Include="src\camera_selector.cpp" />
+    <ClCompile Include="src\config_mgr.cpp" />
+    <ClCompile Include="src\cvui\impl\cvui_button.cpp" />
+    <ClCompile Include="src\cvui\impl\cvui_container.cpp" />
+    <ClCompile Include="src\cvui\impl\cvui_imageframe.cpp" />
+    <ClCompile Include="src\cv_utils.cpp" />
+    <ClCompile Include="src\cvpipeline.cpp" />
+    <ClCompile Include="src\cvpositionest.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\keyboard_emu\keyboard_emu.cpp" />
+    <ClCompile Include="src\keyboard_emu\layout_provider.cpp" />
+    <ClCompile Include="src\port\win32\3rd\opencv\cap_dshow.cpp" />
+    <ClCompile Include="src\port\win32\keyinjector_win32.cpp" />
+    <ClCompile Include="src\port\win32\platform_language_win32.cpp" />
+    <ClCompile Include="src\port\win32\powervideocap_win32.cpp" />
+    <ClCompile Include="src\port\win32\productid_win32.cpp" />
+    <ClCompile Include="src\port\win32\updatechecker_win32.cpp" />
+    <ClCompile Include="src\resource_mgr.cpp" />
+    <ClCompile Include="src\sketchpad\sketch_pad.cpp" />
+    <ClCompile Include="src\utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\autolink.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\config.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\features.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\forwards.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\json.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\reader.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\value.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\writer.h" />
+    <ClInclude Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_batchallocator.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\blobfinder.h" />
+    <ClInclude Include="src\cameraundistortor.h" />
+    <ClInclude Include="src\camera_selector.h" />
+    <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\config_mgr.h" />
+    <ClInclude Include="src\cvui\cvui.h" />
+    <ClInclude Include="src\cvui\cvui_base.h" />
+    <ClInclude Include="src\cvui\cvui_button.h" />
+    <ClInclude Include="src\cvui\cvui_imageframe.h" />
+    <ClInclude Include="src\cv_common.h" />
+    <ClInclude Include="src\cv_utils.h" />
+    <ClInclude Include="src\cvpipeline.h" />
+    <ClInclude Include="src\cvpositionest.h" />
+    <ClInclude Include="src\dev_conf.h" />
+    <ClInclude Include="src\keyboard_emu\keyboard_emu.h" />
+    <ClInclude Include="src\keyboard_emu\layout_provider.h" />
+    <ClInclude Include="src\port\common\keyinjector.h" />
+    <ClInclude Include="src\port\common\platform_language.h" />
+    <ClInclude Include="src\port\common\PowerVideoCapture.h" />
+    <ClInclude Include="src\port\common\productid.h" />
+    <ClInclude Include="src\port\common\updatechecker.h" />
+    <ClInclude Include="src\port\win32\3rd\opencv\cap_dshow.h" />
+    <ClInclude Include="src\resource_mgr.h" />
+    <ClInclude Include="src\sketchpad\sketch_pad.h" />
+    <ClInclude Include="src\port\win32\inc\arch_inc.h" />
+    <ClInclude Include="src\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon1.ico" />
+    <None Include="icon2.ico" />
+    <None Include="ReadMe.txt" />
+    <None Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_internalarray.inl" />
+    <None Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_internalmap.inl" />
+    <None Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_valueiterator.inl" />
+    <None Include="res\rplogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="laser_kbd.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
