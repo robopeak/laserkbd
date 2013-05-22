@@ -3,4 +3,8 @@ laserkbd
 
 A Low Cost Laser Projection Keyboard designed by RoboPeak
 
---- Source Code Coming Soon! ---
+Full Source Code Release
+
+NOTE: all the source code is licensed under LGPL.  No warranty for the sourcecode and the related software.
+
+
