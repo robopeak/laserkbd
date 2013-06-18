@@ -15,6 +15,7 @@
 #include "kdtree++/kdtree.hpp"
 
 static const float MAX_KEY_BUTTON_SIZE = 60.0f;
+#define FEATURE_PATTERN_TYPE_2
 
 const static KeyDesc_t _key_mapper[] =
 { 
@@ -68,20 +69,39 @@ const static KeyDesc_t _key_mapper[] =
     {   143,  57.5,   19,    19,   'M',    'M' , "M"} ,
     {   162,  57.5,   19,    19,   VK_OEM_COMMA,    '<' , ", <"} ,
     {   181,  57.5,   19,    19,   VK_OEM_PERIOD,'>' , ". >"} ,
+#ifdef FEATURE_PATTERN_TYPE_2
+    {   200,  57.5,   19,    19,   VK_UP,VK_UP , "UP" } ,
+    {   219,  57.5,   19,    19,   VK_OEM_2,VK_OEM_2 , "/ ?"} ,
+#else
     {   200,  57.5,   19,    19,   VK_OEM_2,VK_OEM_2 , "/ ?"} ,
     {   219,  57.5,   19,    19,   VK_UP,VK_UP , "UP"} ,
+#endif
+
     {   238,  57.5,   19,    19,   VK_RSHIFT,VK_RSHIFT , "SHIFT"} ,
     {  -34.5,  76.5,   22,    19,   VK_CONTROL,VK_CONTROL , "CTRL"} ,
+#ifdef FEATURE_PATTERN_TYPE_2
+    { -13,  76.5,   21,    19,   VK_MENU,VK_MENU , "ALT"} ,
+    {   8,  76.5,   21,    19,   KEY_FN,KEY_FN , "FN"} ,
+
+#else
     { -13,  76.5,   21,    19,   KEY_FN,KEY_FN , "FN"} ,
     {   8,  76.5,   21,    19,   VK_MENU,VK_MENU , "ALT"} ,
+#endif
     {  28,  76.5,   19,    19,   VK_OEM_4,VK_OEM_4 , "[ {"} ,
     {  47,  76.5,   19,    19,   VK_OEM_6,VK_OEM_6 , "] }"} ,
     {   104.5,  76.5,  96,    19,   VK_SPACE,VK_SPACE , "SPACE"} ,
     { 162,  76.5,   19,    19,   VK_OEM_7,VK_OEM_7 , "' \""} ,
+#ifdef FEATURE_PATTERN_TYPE_2
+    { 181,  76.5,   19,    19,   VK_LEFT,VK_LEFT , "LEFT"} ,
+    { 200,  76.5,   19,    19,   VK_DOWN, VK_DOWN, "DOWN"} ,
+    { 219,  76.5,   19,    19,   VK_RIGHT,VK_RIGHT, "RIGHT"} ,
+    { 238,  76.5,   19,    19,   VK_DELETE, VK_DELETE, "DEL"} 
+#else
     { 181,  76.5,   19,    19,   VK_DELETE, VK_DELETE, "DEL"} ,
     { 200,  76.5,   19,    19,   VK_LEFT,VK_LEFT , "LEFT"} ,
     { 219,  76.5,   19,    19,   VK_DOWN, VK_DOWN, "DOWN"} ,
     { 238,  76.5,   19,    19,   VK_RIGHT,VK_RIGHT, "RIGHT" } 
+#endif
 };
 
 
