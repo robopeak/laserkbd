@@ -15,6 +15,7 @@
 #include "kdtree++/kdtree.hpp"
 
 static const float MAX_KEY_BUTTON_SIZE = 60.0f;
+#define FEATURE_PATTERN_TYPE_2
 
 const static KeyDesc_t _key_mapper[] =
 { 
@@ -72,8 +73,14 @@ const static KeyDesc_t _key_mapper[] =
     {   219,  57.5,   19,    19,   VK_UP,VK_UP , "UP"} ,
     {   238,  57.5,   19,    19,   VK_RSHIFT,VK_RSHIFT , "SHIFT"} ,
     {  -34.5,  76.5,   22,    19,   VK_CONTROL,VK_CONTROL , "CTRL"} ,
+#ifdef FEATURE_PATTERN_TYPE_2
+    { -13,  76.5,   21,    19,   VK_MENU,VK_MENU , "ALT"} ,
+    {   8,  76.5,   21,    19,   KEY_FN,KEY_FN , "FN"} ,
+
+#else
     { -13,  76.5,   21,    19,   KEY_FN,KEY_FN , "FN"} ,
     {   8,  76.5,   21,    19,   VK_MENU,VK_MENU , "ALT"} ,
+#endif
     {  28,  76.5,   19,    19,   VK_OEM_4,VK_OEM_4 , "[ {"} ,
     {  47,  76.5,   19,    19,   VK_OEM_6,VK_OEM_6 , "] }"} ,
     {   104.5,  76.5,  96,    19,   VK_SPACE,VK_SPACE , "SPACE"} ,
