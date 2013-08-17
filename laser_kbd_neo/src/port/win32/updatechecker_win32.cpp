@@ -72,7 +72,7 @@ public:
             return false;
         }
 
-        std::string result = root.get("result", "no_update_available").asString();
+        std::string result = root.get("Result", "no_update_available").asString();
         if (result.compare("no_update_available")==0) {
             return false;
         }
@@ -147,7 +147,7 @@ protected:
             CURLcode result = curl_easy_perform(easyhandle);
 
             if (responsePos && result == CURLE_OK) {
-                responseBuffer[responsePos-1] = 0;
+                responseBuffer[responsePos] = 0;
                 // data retrieved
                 //printf("Data=\n%s\n", responseBuffer);
                 // set data flag

@@ -52,7 +52,7 @@ bool GetPlatformIdentification(platform_id_t & id)
         if (PREFIX_CMP(linebuffer, "Wireless LAN adapter")==0) {
             currentAdaptor = FINDMSK_WIRELESS;
 
-        } else if (PREFIX_CMP(linebuffer, "Wireless LAN adapter")==0) {
+        } else if (PREFIX_CMP(linebuffer, "Ethernet adapter")==0) {
             currentAdaptor = FINDMSK_ETHERNET;
 
         } else if (PREFIX_CMP(linebuffer, "   Physical Address")==0) {
