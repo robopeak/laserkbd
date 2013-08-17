@@ -625,15 +625,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../../../../ref/inc/opencv_new,
-					../../../../../ref/inc/libusb,
+					../../sdkpack/ref/inc/opencv_new,
+					../../sdkpack/ref/inc/libusb,
 					"../ref/libkdtree++_0.7.0",
 					"../ref/curl-7.29.0/include",
 					"../ref/jsoncpp-src-0.5.0/include",
 					../src/cvui,
 					../src,
 				);
-				LIBRARY_SEARCH_PATHS = "../../../../../build/obj/OpenCV-2.3.1/build/lib";
+				LIBRARY_SEARCH_PATHS = .;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.7;
@@ -663,15 +663,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../../../../ref/inc/opencv_new,
-					../../../../../ref/inc/libusb,
+					../../sdkpack/ref/inc/opencv_new,
+					../../sdkpack/ref/inc/libusb,
 					"../ref/libkdtree++_0.7.0",
 					"../ref/curl-7.29.0/include",
 					"../ref/jsoncpp-src-0.5.0/include",
 					../src/cvui,
 					../src,
 				);
-				LIBRARY_SEARCH_PATHS = "../../../../../build/obj/OpenCV-2.3.1/build/lib";
+				LIBRARY_SEARCH_PATHS = .;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx10.7;
 			};
