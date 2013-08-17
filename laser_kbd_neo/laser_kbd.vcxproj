@@ -66,7 +66,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opencv_core231.lib;opencv_legacy231.lib;opencv_imgproc231.lib;opencv_highgui231.lib;opencv_calib3d231.lib;libusb-1.0.lib;libcurl.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_core246.lib;opencv_legacy246.lib;opencv_imgproc246.lib;opencv_highgui246.lib;opencv_calib3d246.lib;libusb-1.0.lib;libcurl.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\sdkpack\ref\lib\win32\x86;ref\curl-7.29.0\lib\LIB-Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -87,7 +87,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opencv_core231.lib;opencv_legacy231.lib;opencv_imgproc231.lib;opencv_highgui231.lib;opencv_calib3d231.lib;libusb-1.0.lib;libcurl.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_core246.lib;opencv_legacy246.lib;opencv_imgproc246.lib;opencv_highgui246.lib;opencv_calib3d246.lib;libusb-1.0.lib;libcurl.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\sdkpack\ref\lib\win32\x86;ref\curl-7.29.0\lib\LIB-Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
