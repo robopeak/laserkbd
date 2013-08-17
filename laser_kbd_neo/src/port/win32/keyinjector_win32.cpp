@@ -10,6 +10,8 @@
 #include "common.h"
 #include "port/common/keyinjector.h"
 
+#include "config_mgr.h"
+extern ConfigBundle         g_config_bundle;
 
 class OSKeyInjector_Win32 : public OSKeyInjector
 {
@@ -28,6 +30,7 @@ public :
     {
         if (!intputlist.size()) return false;
 
+        bool hasinputs = false;
 
         INPUT * inputs = new INPUT[intputlist.size()];
         
@@ -39,7 +42,7 @@ public :
                 inputs[pos].ki.wVk = intputlist[pos].keyval;
                 
                 if (intputlist[pos].type == KEY_EVENT_PRESSED) {
-                
+                    hasinputs = true;
                     inputs[pos].ki.dwFlags =  0;
                 } else {
                     inputs[pos].ki.dwFlags =  KEYEVENTF_KEYUP;
@@ -54,6 +57,13 @@ public :
 
 
         delete [] inputs;
+
+        if (hasinputs && g_config_bundle.playsound) {
+            // play sound feedback
+            std::string soundfile = FILEPATH_RESOURCE_SOUND_FOLDER;
+            soundfile += "type.wav";
+            ::sndPlaySoundA( soundfile.c_str(), SND_ASYNC);
+        }
 
         return true;
     }

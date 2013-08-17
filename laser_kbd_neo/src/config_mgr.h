@@ -26,7 +26,7 @@ struct ConfigBundle {
     int keyrefire_delay;
     int keyrefire_interval;
     int default_cam_id;
-
+    int playsound;
     ConfigMgr & _mgr;
 };
 

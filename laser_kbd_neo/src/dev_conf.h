@@ -58,6 +58,7 @@ static const char * FILEPATH_RESOURCE_COMMON_FOLDER = "res/common/";
 static const char * FILEPATH_RESOURCE_LANG_FOLDER = "res/lang/";
 
 static const char * FILEPATH_RESOURCE_PREDEFINE_FOLDER = "res/prefined/";
+static const char * FILEPATH_RESOURCE_SOUND_FOLDER = "res/sound/";
 
 // sketch pad related
 const int SKETCH_AREA_HEIGHT = 500;

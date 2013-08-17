@@ -30,6 +30,7 @@ void ConfigBundle::flush()
     STORE_INT_BY_FIELD(keyrefire_delay);
     STORE_INT_BY_FIELD(keyrefire_interval);
     STORE_INT_BY_FIELD(default_cam_id);
+    STORE_INT_BY_FIELD(playsound);
 }
 
 void ConfigBundle::load() 
@@ -46,6 +47,7 @@ void ConfigBundle::load()
     LOAD_INT_BY_FIELD(keyrefire_delay);
     LOAD_INT_BY_FIELD(keyrefire_interval);
     LOAD_INT_BY_FIELD(default_cam_id);
+    LOAD_INT_BY_FIELD(playsound);
 }
 
 void ConfigBundle::loadDefaultValues() 
@@ -54,6 +56,7 @@ void ConfigBundle::loadDefaultValues()
     keyrefire_delay = REFIRE_DELAY;
     keyrefire_interval = REFIRE_INTERVAL;
     default_cam_id  = 0;
+    playsound = 1;
 }
 
 //----
