@@ -10,6 +10,7 @@ If you want to retrieve their source code, please refer to the following info:
   The copyright and license files have been included inside the license folder.
 
   The prebuilt binaries (*.lib and *.dll) were generated using VS2010 compiler on Win7 x64 system without any modification to the OpenCV library.
+  The prebuilt binaries (*.dylib) were generated using CMake & gcc compiler on MacOS 10.8 x86 without any modification to the source.  
 
 - libusbX (with version 1.0.11)
   You can download its full source code via the following URL:
@@ -18,3 +19,4 @@ If you want to retrieve their source code, please refer to the following info:
   The copyright and license files have been included inside the license folder.
 
   The prebuilt binaries (*.lib and *.dll) were generated using VS2010 compiler on Win7 x64 system without any modification to the libusbX library.
+  The prebuilt binaries (*.dylib) were generated using CMake & gcc compiler on MacOS 10.8 x86 without any modification to the source.  
