@@ -8,9 +8,11 @@
  *  http://www.robopeak.net
  */
 
+#include <sys/stat.h>
+#include <sys/types.h>
+
 #include "common.h"
 #include "cv_common.h"
-
 
 #include "keyboard_emu/keyboard_emu.h"
 #include "sketchpad/sketch_pad.h"
@@ -20,10 +22,10 @@
 #include "camera_selector.h"
 #include "port/common/updatechecker.h"
 #include "port/common/productid.h"
+
 using namespace std;
 
-
-PowerVideoCapture  * cam_input = NULL;
+PowerVideoCapture*   cam_input = NULL;
 ResourceMgr          g_resouce_mgr;
 ConfigMgr            g_config_mgr;
 ConfigBundle         g_config_bundle(g_config_mgr);

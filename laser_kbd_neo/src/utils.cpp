@@ -8,6 +8,8 @@
  *  http://www.robopeak.net
  */
 
+#include <string.h>
+
 #include "common.h"
 
 std::string trim( const char * src, char ch)

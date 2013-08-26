@@ -1,0 +1,27 @@
+env = Environment(CCFLAGS='-g')
+env['CPPPATH'] = ['/usr/include/jsoncpp', './src', './src/cvui']
+env['LIBS'] = ['libpthread', 'libjsoncpp']
+env.ParseConfig('pkg-config --cflags --libs opencv libusb libcurl')
+
+env.Program('laser_kdb', ['./src/main.cpp', 
+                          './src/port/linux/powervideocap_linux.cpp',
+                          './src/port/linux/updatechecker_linux.cpp',
+                          './src/port/linux/productid_linux.cpp',
+                          './src/keyboard_emu/keyboard_emu.cpp', 
+                          './src/port/linux/keyinjector_linux.cpp',
+                          './src/keyboard_emu/layout_provider.cpp',
+                          './src/cv_utils.cpp',
+                          './src/cameraundistortor.cpp',
+                          './src/cvpositionest.cpp',
+                          './src/cvui/impl/cvui_container.cpp',
+                          './src/cvui/impl/cvui_imageframe.cpp',
+                          './src/cvui/impl/cvui_button.cpp',
+                          './src/sketchpad/sketch_pad.cpp', 
+                          './src/cvpipeline.cpp', 
+                          './src/resource_mgr.cpp', 
+                          './src/port/linux/platform_language_linux.cpp',
+                          './src/config_mgr.cpp', 
+                          './src/utils.cpp',
+                          './src/blobfinder.cpp',
+                          './src/camera_selector.cpp', 
+                         ])

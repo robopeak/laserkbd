@@ -13,7 +13,7 @@
 #elif defined (_MACOS)
 #include "port/macos/inc/arch_inc.h"
 #elif defined (__GNUC__)
-#error "unsupported target"
+#include "port/linux/inc/arch_inc.h"
 #else
 #error "unsupported target"
 #endif
