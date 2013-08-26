@@ -9,10 +9,9 @@ NOTE: all the source code is licensed under LGPL.  No warranty for the sourcecod
 
 depend
 ======
-sudo apt-get install libopencv-dev libcurl4-openssl-dev libusb-dev \
-                     libjsoncpp-dev libkdtree++-dev scons 
+sudo apt-get install libopencv-dev libcurl4-openssl-dev libusb-dev libjsoncpp-dev libkdtree++-dev scons 
 
 build
 =====
-cd ./laser_kbd_neo/src/ 
+cd ./laser_kbd_neo
 scons
