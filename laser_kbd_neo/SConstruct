@@ -3,7 +3,7 @@ env['CPPPATH'] = ['/usr/include/jsoncpp', './src', './src/cvui']
 env['LIBS'] = ['libpthread', 'libjsoncpp']
 env.ParseConfig('pkg-config --cflags --libs opencv libusb libcurl')
 
-env.Program('laser_kdb', ['./src/main.cpp', 
+env.Program('laser_kbd', ['./src/main.cpp', 
                           './src/port/linux/powervideocap_linux.cpp',
                           './src/port/linux/updatechecker_linux.cpp',
                           './src/port/linux/productid_linux.cpp',
