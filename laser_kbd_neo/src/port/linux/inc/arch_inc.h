@@ -30,7 +30,7 @@ static inline const char* getPlatformConfigPrefix()
 
 static inline bool checkPlatformExitFlag() 
 {
-    return true;
+    return false;
 }
 
 #ifndef _countof
