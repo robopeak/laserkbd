@@ -1,6 +1,22 @@
-/*
- * Copyright (C) 2013 Deepin, Inc.                                              
- *                    Leslie Zhai <zhaixiang@linuxdeepin.com>
+/*                                                                              
+ * Copyright (C) 2013 Deepin, Inc.                                                 
+ *               2013 Leslie Zhai                                                  
+ *                                                                              
+ * Author:     Leslie Zhai <zhaixiang@linuxdeepin.com>                           
+ * Maintainer: Leslie Zhai <zhaixiang@linuxdeepin.com>                           
+ *                                                                              
+ * This program is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU General Public License as published by         
+ * the Free Software Foundation, either version 3 of the License, or            
+ * any later version.                                                           
+ *                                                                              
+ * This program is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                
+ * GNU General Public License for more details.                                 
+ *                                                                              
+ * You should have received a copy of the GNU General Public License            
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.        
  */
 
 #include <dirent.h>
@@ -23,7 +39,6 @@ public:
 
 protected:
     int    _deviceidx;
-    IplImage* _cached_frame;
     CvCapture* _capture;
 };
 
@@ -69,7 +84,6 @@ size_t PowerVideoCapture::EnumCaptureDevices(std::vector<std::string> & list)
 
 PowerVideoCapture_Linux::PowerVideoCapture_Linux(int idx)
     : _deviceidx(idx)
-    , _cached_frame(NULL)
 {
     _capture = cvCaptureFromCAM(idx);
 }
@@ -86,14 +100,15 @@ PowerVideoCapture_Linux::~PowerVideoCapture_Linux()
 
 bool PowerVideoCapture_Linux::setImageSize(int width, int height)
 {
+    int ret = 0;
+
     if (width && height)
     {
-        cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_WIDTH, (double)width);
-        cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_HEIGHT, (double)height);
-        return true;
+        ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_WIDTH, (double)width);
+        ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_HEIGHT, (double)height);
     }
 
-    return false;
+    return ret ? true : false;
 }
 
 bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)

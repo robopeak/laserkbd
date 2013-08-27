@@ -1,16 +1,32 @@
-/*
- * Copyright (C) 2013 Deepin, Inc.                                              
- *                    Leslie Zhai <zhaixiang@linuxdeepin.com>
+/*                                                                              
+ * Copyright (C) 2013 Deepin, Inc.                                                 
+ *               2013 Leslie Zhai                                                  
+ *                                                                              
+ * Author:     Leslie Zhai <zhaixiang@linuxdeepin.com>                           
+ * Maintainer: Leslie Zhai <zhaixiang@linuxdeepin.com>                           
+ *                                                                              
+ * This program is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU General Public License as published by         
+ * the Free Software Foundation, either version 3 of the License, or            
+ * any later version.                                                           
+ *                                                                              
+ * This program is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                
+ * GNU General Public License for more details.                                 
+ *                                                                              
+ * You should have received a copy of the GNU General Public License            
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.        
  */
+
+#include <pthread.h>                                                            
+#include <curl/curl.h>                                                          
+#include <json/json.h>                                                          
+#include <string.h>
 
 #include "common.h"
 #include "port/common/updatechecker.h"
 #include "port/common/productid.h"
-
-#include <pthread.h>
-#include <curl/curl.h>
-#include <json/json.h>
-#include <string.h>
 
 class UpdateChecker_Linux : public UpdateChecker
 {
@@ -21,8 +37,6 @@ public:
         , working_thrd(NULL)
         , is_working(false)
     {
-
-
     }
 
     virtual ~UpdateChecker_Linux() 
@@ -35,11 +49,16 @@ public:
         is_working = false;
     }
 
-    virtual void sendQueryRequest(const char* vendortype, const char* productString, const char* versionString) 
+    virtual void sendQueryRequest(const char* vendortype, 
+                                  const char* productString, 
+                                  const char* versionString) 
     {
-        if (is_working) return ;
+        if (is_working) 
+            return ;
 
-        if (!GetPlatformIdentification(_platofomr_id)) return ;
+        if (!GetPlatformIdentification(_platofomr_id)) 
+            return ;
+
         _vendortype = vendortype;
         _productString = productString;
         _versionString = versionString;
@@ -51,7 +70,8 @@ public:
 
     virtual bool getResponseUrl(std::string & buffer) 
     {
-        if (!_isResponseReady) return false;
+        if (!_isResponseReady) 
+            return false;
 
         // parse the response to json
         Json::Value root;
@@ -61,9 +81,7 @@ public:
 
         std::string result = root.get("Result", "no_update_available").asString();
         if (result.compare("no_update_available") == 0) 
-        {
             return false;
-        } 
         else 
         {
             buffer = result;
@@ -76,15 +94,20 @@ protected:
     char responseBuffer[2048];
     size_t responsePos;
 
-    static size_t curl_on_write_data(void *buffer, size_t size, size_t nmemb, void *userp)
+    static size_t curl_on_write_data(void* buffer, 
+                                     size_t size, 
+                                     size_t nmemb, 
+                                     void* userp)
     {
         UpdateChecker_Linux* This = reinterpret_cast<UpdateChecker_Linux*>(userp);
 
         int remaining_cnt = sizeof(This->responseBuffer) - This->responsePos;
-        if (remaining_cnt < 0) return 0;
+        if (remaining_cnt < 0) 
+            return 0;
 
         size_t actualCopySize = std::min((size_t)remaining_cnt, size * nmemb);
-        if (actualCopySize == 0) return 0;
+        if (actualCopySize == 0) 
+            return 0;
 
         memcpy(This->responseBuffer+This->responsePos, buffer, actualCopySize);
         This->responsePos += actualCopySize;
@@ -95,16 +118,15 @@ protected:
     void _working_thrd() 
     {
         // compose the requst
-        
         curl_global_init(CURL_GLOBAL_ALL);
-        do {
+        do 
+        {
+            CURL* easyhandle = curl_easy_init();
 
-            CURL * easyhandle = curl_easy_init();
-
-            if (!easyhandle) break;
-
+            if (!easyhandle) 
+                break;
             
-            char query_urlbuffer[1024];
+            char query_urlbuffer[1024] = {0};
             std::string urlString;
 
             sprintf(query_urlbuffer, "?device=%s&model=%s&submodel=%02x%02x%02x%02x%02x%02x&platform=%s&software_version=%s&firmware_version=%s&format=json"
@@ -132,7 +154,8 @@ protected:
 
             CURLcode result = curl_easy_perform(easyhandle);
 
-            if (responsePos && result == CURLE_OK) {
+            if (responsePos && result == CURLE_OK) 
+            {
                 responseBuffer[responsePos] = 0;
                 _isResponseReady = true;
             }
@@ -154,7 +177,6 @@ protected:
 
     pthread_t working_thrd;
     bool      is_working;
-
     std::string _vendortype;
     std::string _productString;
     std::string _versionString;
