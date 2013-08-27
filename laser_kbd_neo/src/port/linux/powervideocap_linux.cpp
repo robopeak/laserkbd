@@ -108,7 +108,7 @@ bool PowerVideoCapture_Linux::setImageSize(int width, int height)
         ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_HEIGHT, (double)height);
     }
 
-    return ret ? true : false;
+    return true;
 }
 
 bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)

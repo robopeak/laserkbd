@@ -108,6 +108,7 @@ bool IsTargetProductPresent()
         }
         libusb_free_device_list(dev_list, 0);
     } while (0);                                                                 
-    libusb_exit(NULL);                                                          
+    // FIXME: libusbx: warning [libusb_exit] application left some devices open
+    //libusb_exit(NULL);                                                          
     return ans;
 }
