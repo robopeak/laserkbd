@@ -1,6 +1,8 @@
 env = Environment(CCFLAGS='-g')
 env['CPPPATH'] = ['./../src']
-env.ParseConfig('pkg-config --cflags --libs libusb-1.0')
+env.ParseConfig('pkg-config --cflags --libs atspi-2 libusb-1.0')
 
 env.Program('test_productid', ['test_productid.cpp', 
                                './../src/port/linux/productid_linux.cpp'])
+
+env.Program('test_atspi.cpp')

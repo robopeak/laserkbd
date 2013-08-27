@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.        
  */
 
+#include <atspi/atspi.h>
+
 #include "common.h"
 #include "port/common/keyinjector.h"
 #include "config_mgr.h"
@@ -36,9 +38,35 @@ public :
     {
     }
 
-
-    virtual bool injectKeyEvents( const std::vector<KeyEventDesc> & intputlist)
+    virtual bool injectKeyEvents(const std::vector<KeyEventDesc> & intputlist)
     {
+        bool hasinputs = false;
+        int keyval;
+        int pos;
+        
+        if (!intputlist.size()) 
+            return false;                                   
+                                                                                
+        for (pos = 0; pos < intputlist.size(); ++pos) 
+        {                                                                   
+            int keyval = intputlist[pos].keyval;                    
+                                                                                
+            if (intputlist[pos].type == KEY_EVENT_PRESSED) 
+            {                
+                hasinputs = true;
+                atspi_generate_keyboard_event(keyval, NULL, ATSPI_KEY_PRESS, NULL);
+            } 
+            else 
+                atspi_generate_keyboard_event(keyval, NULL, ATSPI_KEY_RELEASE, NULL);         
+        }                    
+                                                                                
+        if (hasinputs && g_config_bundle.playsound) 
+        {                           
+            // play sound feedback                                              
+            std::string soundfile = FILEPATH_RESOURCE_SOUND_FOLDER;             
+            soundfile += "type.wav";                                            
+        }                                                                       
+                                                                                
         return true;
     }
 };
@@ -58,7 +86,6 @@ OSKeyInjector * OSKeyInjector::GetInstance() {
     pthread_mutex_unlock(&m_mutex);
     return OSKeyInjector::g_inst;
 }
-
 
 void OSKeyInjector::ReleaseInstance()
 {

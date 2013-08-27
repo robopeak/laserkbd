@@ -1,7 +1,7 @@
 env = Environment(CCFLAGS='-g')
 env['CPPPATH'] = ['/usr/include/jsoncpp', './src', './src/cvui']
 env['LIBS'] = ['libpthread', 'libjsoncpp']
-env.ParseConfig('pkg-config --cflags --libs opencv libusb-1.0 libcurl')
+env.ParseConfig('pkg-config --cflags --libs opencv atspi-2 libusb-1.0 libcurl')
 
 env.Program('laser_kbd', ['./src/main.cpp', 
                           './src/port/linux/powervideocap_linux.cpp',
