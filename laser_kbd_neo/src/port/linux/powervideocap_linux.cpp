@@ -3,6 +3,9 @@
  *                    Leslie Zhai <zhaixiang@linuxdeepin.com>
  */
 
+#include <dirent.h>
+#include <string.h>
+
 #include "common.h"
 #include "cv_common.h"
 #include "port/common/PowerVideoCapture.h"
@@ -45,8 +48,23 @@ PowerVideoCapture* PowerVideoCapture::CreateCaptureByID(int id)
 
 size_t PowerVideoCapture::EnumCaptureDevices(std::vector<std::string> & list)
 {
-    //return LinuxCapture::listDevices(list);
-    return 1;
+    DIR* dp = NULL;
+    struct dirent* ep = NULL;
+
+    dp = opendir("/dev");
+    if (dp) 
+    {
+        while (ep = readdir(dp)) 
+        {
+            if (strstr(ep->d_name, "video"))
+                list.push_back("/dev/" + std::string(ep->d_name));
+        }
+        closedir(dp);
+        dp = NULL;
+        ep = NULL;
+    }
+    
+    return list.size();
 }
 
 PowerVideoCapture_Linux::PowerVideoCapture_Linux(int idx)
@@ -87,7 +105,9 @@ bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)
 
 bool PowerVideoCapture_Linux::setExposureVal(long level)
 {
-    //return _capture.setExposureLevel(level);
+    cvSetCaptureProperty(_capture, 
+                         CV_CAP_PROP_EXPOSURE, 
+                         10000.0f * pow((double)2.0f, (double)level));
     return true;
 }
 

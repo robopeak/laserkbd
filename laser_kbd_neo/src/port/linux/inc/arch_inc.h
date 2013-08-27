@@ -20,12 +20,12 @@ static inline void gotoURL(const char* url)
 
 static inline const char* getPlatformResPrefix() 
 {
-    return "";
+    return "./";
 }
 
 static inline const char* getPlatformConfigPrefix() 
 {
-    return "";
+    return "./";
 }
 
 static inline bool checkPlatformExitFlag() 
