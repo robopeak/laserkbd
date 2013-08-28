@@ -26,7 +26,8 @@
 
 int main(int argc, char* argv[]) 
 {
-    int fd = v4l2_open(argv[1] ? argv[1] : "/dev/video0", O_RDWR | O_NONBLOCK, 0);
+    std::cout << "DEBUG: " << int(O_RDWR) << std::endl;
+    int fd = v4l2_open(argv[1] ? argv[1] : "/dev/video0", O_RDWR);
     struct v4l2_control ctrl;
 
     if (fd == -1) 

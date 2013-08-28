@@ -21,6 +21,9 @@
 
 #include <dirent.h>
 #include <string.h>
+#include <linux/videodev2.h>                                                    
+#include <libv4l2.h>                                                            
+#include <fcntl.h>
 
 #include "common.h"
 #include "cv_common.h"
@@ -120,12 +123,30 @@ bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)
 
 bool PowerVideoCapture_Linux::setExposureVal(long level)
 {
-    /* Check video device whether or not support exposure 
+    /* Check video device whether or not support exposure_auto, exposure_absolute 
      * v4l2-ctl -w --all | grep exposure 
      */
-    cvSetCaptureProperty(_capture, 
-                         CV_CAP_PROP_EXPOSURE, 
-                         10000.0f * pow((double)2.0f, (double)level));
+    char buf[PATH_MAX] = {0};
+    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);
+    int fd = v4l2_open(buf, O_RDWR); 
+    struct v4l2_control ctrl;                                                   
+                                                                                
+    if (fd == -1) 
+       return false; 
+                                                                                
+    ctrl.id = V4L2_CID_EXPOSURE_AUTO;                                           
+    ctrl.value = V4L2_EXPOSURE_MANUAL;                                          
+    if (v4l2_ioctl(fd, VIDIOC_S_CTRL, &ctrl) == -1)                             
+        std::cout << "DEBUG: fail to set exposure_auto" << std::endl; 
+                                                                                
+    ctrl.id = V4L2_CID_EXPOSURE_ABSOLUTE;                                       
+    ctrl.value = 10000.0f * pow((double)2.0f, (double)level);
+    if (v4l2_ioctl(fd, VIDIOC_S_CTRL, &ctrl) == -1) 
+        std::cout << "DEBUG: fail to set exposure_absolute" << std::endl;
+                                                                                
+    v4l2_close(fd);                                                             
+    fd = -1;
+
     return true;
 }
 
