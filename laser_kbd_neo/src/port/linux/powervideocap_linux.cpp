@@ -120,11 +120,12 @@ bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)
 
 bool PowerVideoCapture_Linux::setExposureVal(long level)
 {
-    /* FIXME: HIGHGUI ERROR: V4L: Property Exposure(15) not supported by device
+    /* Check video device whether or not support exposure 
+     * v4l2-ctl -w --all | grep exposure 
+     */
     cvSetCaptureProperty(_capture, 
                          CV_CAP_PROP_EXPOSURE, 
                          10000.0f * pow((double)2.0f, (double)level));
-    */
     return true;
 }
 
