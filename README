@@ -9,15 +9,27 @@ NOTE: all the source code is licensed under LGPL.
 No warranty for the sourcecode and the related software.
 
 depend for Linux Deepin
-======
+=======================
 sudo apt-get install libopencv-dev libatspi2.0-dev libv4l-dev \
                      libcurl4-openssl-dev libkdtree++-dev libjsoncpp-dev \
                      libusb-1.0-0-dev scons 
 
 build for Linux Deepin
-=====
-cd ./laser_kbd_neo
+======================
+cd laser_kbd_neo
 scons
+
+debug for Linux Deepin
+======================
+gdb ./laser_kbd_neo/laser_kbd 
+r
+bt
+b ./laser_kbd_neo/src/port/linux/powervideocap_linux.cpp:41
+
+video device whether or not support exposure
+============================================
+sudo apt-get install v4l-utils
+v4l2-ctl -w --all | grep exposure
 
 opencv BUG
 ==========
