@@ -8,6 +8,10 @@ Full Source Code Release
 NOTE: all the source code is licensed under LGPL.
 No warranty for the sourcecode and the related software.
 
+get Linux Deepin
+================
+http://www.linuxdeepin.com/download.cn.html
+
 depend for Linux Deepin
 =======================
 sudo apt-get install libopencv-dev libatspi2.0-dev libv4l-dev \
