@@ -14,7 +14,7 @@ http://www.linuxdeepin.com/download.cn.html
 
 depend for Linux Deepin
 =======================
-sudo apt-get install libopencv-dev libatspi2.0-dev libv4l-dev \
+sudo apt-get install libopencv-dev libatspi2.0-dev libx11-dev libv4l-dev \
                      libcurl4-openssl-dev libkdtree++-dev libjsoncpp-dev \
                      libusb-1.0-0-dev scons 
 

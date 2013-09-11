@@ -62,8 +62,7 @@ public :
         {                                                                   
             keyval = intputlist[pos].keyval;
             keycode = m_KeysymToKeycode(keyval);
-            
-            printf("DEBUG: keyval %d keycode %d\n", keyval, keycode);
+            //printf("DEBUG: keyval %d keycode %d\n", keyval, keycode);
 
             if (intputlist[pos].type == KEY_EVENT_PRESSED) 
             {                
