@@ -41,7 +41,9 @@ SketchPad::SketchPad(KeyLayoutProvider & p)
 SketchPad::~SketchPad()
 {
     cvReleaseImage(&_sketch_img);
-    cvDestroyWindow("sketchpad");
+    
+    if (cvGetWindowHandle("sketchpad")) 
+        cvDestroyWindow("sketchpad");
 }
 
 void SketchPad::s_onMouse(int mouse_event, int x, int y,int, void* pThis)

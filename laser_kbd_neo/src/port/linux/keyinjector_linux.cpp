@@ -19,7 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.        
  */
 
+#include <iostream>
 #include <atspi/atspi.h>
+#include <X11/Xlib.h>
 
 #include "common.h"
 #include "port/common/keyinjector.h"
@@ -30,18 +32,27 @@ extern ConfigBundle         g_config_bundle;
 class OSKeyInjector_Linux : public OSKeyInjector
 {
 public :
-    OSKeyInjector_Linux() 
+    OSKeyInjector_Linux() :m_display(NULL) 
     {
+        m_display = XOpenDisplay(NULL);
+        if (m_display == NULL) 
+            std::cout << "ERROR: Could not open display" << std::endl;
     }
 
     virtual ~OSKeyInjector_Linux() 
     {
+        if (m_display) 
+        {
+            XCloseDisplay(m_display);
+            m_display = NULL;
+        }
     }
 
     virtual bool injectKeyEvents(const std::vector<KeyEventDesc> & intputlist)
     {
         bool hasinputs = false;
         int keyval;
+        int keycode;
         int pos;
         
         if (!intputlist.size()) 
@@ -49,15 +60,18 @@ public :
                                                                                 
         for (pos = 0; pos < intputlist.size(); ++pos) 
         {                                                                   
-            int keyval = intputlist[pos].keyval;                    
-                                                                                
+            keyval = intputlist[pos].keyval;
+            keycode = m_KeysymToKeycode(keyval);
+            
+            printf("DEBUG: keyval %d keycode %d\n", keyval, keycode);
+
             if (intputlist[pos].type == KEY_EVENT_PRESSED) 
             {                
                 hasinputs = true;
-                atspi_generate_keyboard_event(keyval, NULL, ATSPI_KEY_PRESS, NULL);
+                atspi_generate_keyboard_event(keycode, NULL, ATSPI_KEY_PRESS, NULL);
             } 
             else 
-                atspi_generate_keyboard_event(keyval, NULL, ATSPI_KEY_RELEASE, NULL);         
+                atspi_generate_keyboard_event(keycode, NULL, ATSPI_KEY_RELEASE, NULL);         
         }                    
                                                                                 
         if (hasinputs && g_config_bundle.playsound) 
@@ -69,6 +83,18 @@ public :
                                                                                 
         return true;
     }
+
+private:
+    int m_KeysymToKeycode(int Keysym) 
+    {
+        if (m_display) 
+            return XKeysymToKeycode(m_display, Keysym);
+
+        return -1;
+    }
+
+private:
+    Display* m_display;
 };
 
 OSKeyInjector* OSKeyInjector::g_inst = NULL;

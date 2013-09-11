@@ -24,8 +24,8 @@
 
 int main(int argc, char* argv[]) 
 {
-    atspi_generate_keyboard_event(40, NULL, ATSPI_KEY_PRESS, NULL);
-    sleep(1);
-    atspi_generate_keyboard_event(40, NULL, ATSPI_KEY_RELEASE, NULL);
+    atspi_generate_keyboard_event(56, NULL, ATSPI_KEY_PRESS, NULL);
+    usleep(100);
+    atspi_generate_keyboard_event(56, NULL, ATSPI_KEY_RELEASE, NULL);
     return 0;
 }
