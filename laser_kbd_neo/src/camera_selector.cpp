@@ -145,7 +145,7 @@ _final:
     return _prefined_camid;
 }
 
-void   CameraSelector::renderTxtContent()
+void CameraSelector::renderTxtContent()
 {
     char msgbuffer[100];
     if (_cameralist.size()) {
@@ -164,8 +164,14 @@ void   CameraSelector::renderTxtContent()
     cvRectangle(windowImg, cvPoint(_ui_leftbtn.getRight() + 5,_ui_leftbtn.getY()), cvPoint(_ui_rightbtn.getX()-5,_ui_rightbtn.getBottom()),
         cvScalar(100,100,100), 1);
 
-    cv_textOut(windowImg, WINDOWS_SIZE_WIDTH/2, (_ui_leftbtn.getY() + _ui_leftbtn.getBottom())/2
-        , _cameralist[_prefined_camid].c_str(), cvScalar(255,255,255), 2, true);
+    if (_cameralist.size()) 
+    {
+        cv_textOut(windowImg, 
+                   WINDOWS_SIZE_WIDTH / 2, 
+                   (_ui_leftbtn.getY() + _ui_leftbtn.getBottom()) / 2, 
+                   _cameralist[_prefined_camid].c_str(), 
+                   cvScalar(255,255,255), 2, true);
+    }
 }
 
 void CameraSelector::s_onMouse(int mouse_event, int x, int y,int, void* pThis)

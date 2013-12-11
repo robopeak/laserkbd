@@ -1,0 +1,44 @@
+laserkbd
+========
+
+A Low Cost Laser Projection Keyboard designed by RoboPeak
+
+Full Source Code Release
+
+NOTE: all the source code is licensed under LGPL.
+No warranty for the sourcecode and the related software.
+
+get Linux Deepin
+================
+http://www.linuxdeepin.com/download.cn.html
+
+depend for Linux Deepin
+=======================
+sudo apt-get install libopencv-dev libatspi2.0-dev libx11-dev libv4l-dev \
+                     libcurl4-openssl-dev libkdtree++-dev libjsoncpp-dev \
+                     libusb-1.0-0-dev scons 
+
+build for Linux Deepin
+======================
+cd laser_kbd_neo
+scons
+
+debug for Linux Deepin
+======================
+gdb ./laser_kbd_neo/laser_kbd 
+r
+bt
+b ./laser_kbd_neo/src/port/linux/powervideocap_linux.cpp:41
+
+video device whether or not support exposure
+============================================
+sudo apt-get install v4l-utils
+v4l2-ctl -w --all | grep exposure
+
+opencv BUG
+==========
+BUG: OpenCV Error: Null pointer (NULL guiReceiver (please create a window)) in cvDestroyWindow, file /tmp/buildd/opencv-2.4.2+dfsg/modules/highgui/src/window_QT.cpp, line 489
+
+FIX: apt-get source libopencv-dev
+     vi modules/highgui/src/window_QT.cpp
+     line 489, return;
