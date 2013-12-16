@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.        
  */
 
+#include <stdio.h>
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
@@ -37,6 +38,7 @@ int main(int argc, char* argv[])
 {
     Display* display = XOpenDisplay(NULL);
 
+    // xmodmap -pke
     click_key(display, 56);
 
     XCloseDisplay(display);

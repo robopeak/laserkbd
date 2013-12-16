@@ -62,6 +62,7 @@ public :
         {                                                                   
             keyval = intputlist[pos].keyval;
             keycode = m_KeysymToKeycode(keyval);
+            std::cout << "DEBUG: keyval " << keyval << " keycode " << keycode;
 
             if (intputlist[pos].type == KEY_EVENT_PRESSED) 
             {                
