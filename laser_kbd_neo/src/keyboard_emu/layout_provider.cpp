@@ -16,7 +16,6 @@
 #include "kdtree++/kdtree.hpp"
 
 static const float MAX_KEY_BUTTON_SIZE = 60.0f;
-#define FEATURE_PATTERN_TYPE_2
 
 const static KeyDesc_t _key_mapper[] =
 { 
