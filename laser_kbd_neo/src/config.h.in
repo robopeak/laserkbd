@@ -1,0 +1,11 @@
+#if %(debug)d
+#define DEBUG 1
+#else
+#define NDEBUG 1
+#endif
+
+#if %(feature_pattern_type_2)d
+#define FEATURE_PATTERN_TYPE_2 1
+#else
+#define NFEATURE_PATTERN_TYPE_2 1
+#endif

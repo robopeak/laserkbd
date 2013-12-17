@@ -23,6 +23,7 @@
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 
+#include "config.h"
 #include "common.h"
 #include "port/common/keyinjector.h"
 #include "config_mgr.h"
@@ -62,8 +63,9 @@ public :
         {                                                                   
             keyval = intputlist[pos].keyval;
             keycode = m_KeysymToKeycode(keyval);
+#if DEBUG
             std::cout << "DEBUG: keyval " << keyval << " keycode " << keycode << std::endl;
-
+#endif
             if (intputlist[pos].type == KEY_EVENT_PRESSED) 
             {                
                 hasinputs = true;

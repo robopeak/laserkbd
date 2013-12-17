@@ -7,6 +7,7 @@
  *  http://www.robopeak.net
  */
 
+#include "../config.h"
 #include "../common.h"
 #include "../cv_common.h"
 #include <algorithm>

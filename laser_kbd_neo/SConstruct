@@ -1,7 +1,37 @@
+debug = 0
+feature_pattern_type_2 = 1
+
+def print_config(msg, two_dee_iterable):
+    # this function is handy and can be used for other configuration-printing tasks
+    print
+    print msg
+    print
+    for key, val in two_dee_iterable:
+        print "    %-20s %s" % (key, val)
+    print
+
+def config_h_build(target, source, env):
+    config_h_defines = {
+        # this is where you put all of your custom configuration values
+        "debug": debug, # this is an int.  1 for true, 0 for false
+        "feature_pattern_type_2": feature_pattern_type_2, 
+    }
+
+    print_config("Generating config.h with the following settings:",
+                  config_h_defines.items())
+
+    for a_target, a_source in zip(target, source):
+        config_h = file(str(a_target), "w")
+        config_h_in = file(str(a_source), "r")
+        config_h.write(config_h_in.read() % config_h_defines)
+        config_h_in.close()
+        config_h.close()
+
 env = Environment(CCFLAGS='-g')
 env['CPPPATH'] = ['/usr/include/jsoncpp', './src', './src/cvui']
 env['LIBS'] = ['libv4l2', 'libpthread', 'libjsoncpp']
 env.ParseConfig('pkg-config --cflags --libs opencv x11 xtst libusb-1.0 libcurl')
+env.AlwaysBuild(env.Command('./src/config.h', './src/config.h.in', config_h_build))
 
 env.Program('laser_kbd', ['./src/main.cpp', 
                           './src/port/linux/powervideocap_linux.cpp',
