@@ -10,4 +10,6 @@ env.Program('test_atspi.cpp')
 
 env.Program('test_xtest.cpp')
 
+env.Program('test_keycode.cpp')
+
 env.Program('test_v4l2.cpp')

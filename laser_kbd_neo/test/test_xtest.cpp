@@ -38,6 +38,7 @@ int main(int argc, char* argv[])
 {
     Display* display = XOpenDisplay(NULL);
 
+    printf("DEBUG: %d\n", XKeysymToKeycode(display, 10));
     // xmodmap -pke
     click_key(display, 56);
 
