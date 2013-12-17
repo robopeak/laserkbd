@@ -42,28 +42,28 @@ static inline bool checkPlatformExitFlag()
 #define VK_OEM_MINUS            '-'
 #define VK_ADD                  '+'
 #define VK_OEM_PLUS             '='
-/* FIXME: what about Linux Virtual Keysym? */
-#define VK_ESCAPE               65307
-#define VK_BACK                 65288
-#define VK_CAPITAL              2 //non-spec
+/* TODO it is based on /usr/share/X11/xkb/keycodes/evdev */
+#define VK_ESCAPE               9
+#define VK_BACK                 22
+#define VK_CAPITAL              66 //non-spec
 #define VK_TAB                  '\t'
 #define VK_OEM_1                ';'
-#define VK_RETURN               65293
-#define VK_LSHIFT               65505 //non-spec
+#define VK_RETURN               36
+#define VK_LSHIFT               50 //non-spec
 #define VK_OEM_3                '`'
 #define VK_OEM_5                '\\'
 #define VK_OEM_PERIOD           '.'
 #define VK_OEM_2                '/'
-#define VK_UP                   65362 //non-spec
-#define VK_RSHIFT               65506 //non-spec
-#define VK_CONTROL              65507 //non-spec
-#define VK_MENU                 65383    //non-spec , alt
+#define VK_UP                   111 //non-spec
+#define VK_RSHIFT               62 //non-spec
+#define VK_CONTROL              37 //non-spec
+#define VK_MENU                 135    //non-spec , alt
 #define VK_OEM_4                '['
 #define VK_OEM_6                ']'
 #define VK_SPACE                ' '
-#define VK_DELETE               65535 //non-spec
-#define VK_LEFT                 65361 //non-spec
-#define VK_DOWN                 65364 //non-spec
-#define VK_RIGHT                65363 //non-spec
+#define VK_DELETE               119 //non-spec
+#define VK_LEFT                 113 //non-spec
+#define VK_DOWN                 116 //non-spec
+#define VK_RIGHT                114 //non-spec
 #define VK_OEM_7                '\'' 
 #define VK_OEM_COMMA            ','
