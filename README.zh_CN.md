@@ -12,6 +12,7 @@ RoboPeak设计的低成本激光键盘
 sudo pacman -Syu                                                                
 sudo pacman -S opencv libx11 v4l-utils curl jsoncpp libusbx scons
 ```
+手动安装libkdtree++
 
 ## 编译 
 ```

@@ -12,6 +12,7 @@ No warranty for the sourcecode and the related software.
 ```
 sudo pacman -Syu
 sudo pacman -S opencv libx11 v4l-utils curl jsoncpp libusbx scons 
+manual install libkdtree++
 ```
 
 ## build
