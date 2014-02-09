@@ -8,53 +8,48 @@ Full Source Code Release
 NOTE: all the source code is licensed under LGPL. 
 No warranty for the sourcecode and the related software.
 
-get Linux Deepin 
-================
-http://www.linuxdeepin.com/download.cn.html 
-
-depend for Linux Deepin 
-=======================
+## dependence for ArchLinux 
 ```
-sudo apt-get install libopencv-dev libx11-dev libv4l-dev libcurl4-openssl-dev \
-                     libkdtree++-dev libjsoncpp-dev libusb-1.0-0-dev scons 
+sudo pacman -Syu
+sudo pacman -S opencv libx11 v4l-utils curl jsoncpp libusbx scons 
 ```
 
-build for Linux Deepin 
-======================
+## build
 ```
 cd laser_kbd_neo
 scons
 ```
+* different keyboard layout
+https://github.com/xiangzhai/laserkbd/issues/2
+```
+vi ./laser_kbd_neo/SConstruct 
+feature_pattern_type_2 = 0
+```
 
-debug for Linux Deepin 
-======================
+## debug 
 ```
 gdb ./laser_kbd_neo/laser_kbd 
 r
 ```
 
+if segfault
 ```
 bt
 ```
 
+set breakpoint, for example:
 ```
 b ./laser_kbd_neo/src/port/linux/powervideocap_linux.cpp:41
 ```
 
-video device whether or not support exposure 
-============================================
+## video device whether or not support exposure 
 ```
-sudo apt-get install v4l-utils
 v4l2-ctl -w --all | grep exposure
 ```
 
-opencv 2.4.2 BUG 
-================
-BUG: OpenCV Error: Null pointer (NULL guiReceiver (please create a window)) in cvDestroyWindow, file /tmp/buildd/opencv-2.4.2+dfsg/modules/highgui/src/window_QT.cpp, line 489
-
-```
-apt-get source libopencv-dev
-vi modules/highgui/src/window_QT.cpp
-:489
-return;
-```
+## keycode                                                                      
+```                                                                             
+sudo pacman -S xorg-xev                                                         
+xev                     
+```                                                        
+hip keyboard too see the keycode                                                             
