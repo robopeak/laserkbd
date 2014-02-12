@@ -8,11 +8,27 @@ Full Source Code Release
 NOTE: all the source code is licensed under LGPL. 
 No warranty for the sourcecode and the related software.
 
-## dependence for ArchLinux 
+## dependence 
+
+### Ubuntu
+```
+sudo apt-get install libopencv-dev libx11-dev libv4l-dev libcurl4-openssl-dev \
+                     libkdtree++-dev libjsoncpp-dev libusb-1.0-0-dev scons
+```
+
+### ArchLinux
 ```
 sudo pacman -Syu
 sudo pacman -S opencv libx11 v4l-utils curl jsoncpp libusbx scons 
-manual install libkdtree++
+```
+install libkdtree++
+```
+git clone git://git.debian.org/git/libkdtree/libkdtree.git
+cd libkdtree
+./autogen.sh
+./configure --prefix=/usr
+make
+sudo make install
 ```
 
 ## build

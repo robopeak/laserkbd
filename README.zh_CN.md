@@ -7,12 +7,28 @@ RoboPeak设计的低成本激光键盘
 
 注：所有的源代码遵循LGPL。
 
-## 依赖项 
+## 依赖
+
+### Ubuntu
+```
+sudo apt-get install libopencv-dev libx11-dev libv4l-dev libcurl4-openssl-dev \ 
+                     libkdtree++-dev libjsoncpp-dev libusb-1.0-0-dev scons
+```
+
+### ArchLinux
 ```
 sudo pacman -Syu                                                                
 sudo pacman -S opencv libx11 v4l-utils curl jsoncpp libusbx scons
 ```
 手动安装libkdtree++
+```                                                                             
+git clone git://git.debian.org/git/libkdtree/libkdtree.git                      
+cd libkdtree                                                                    
+./autogen.sh                                                                    
+./configure --prefix=/usr                                                       
+make                                                                            
+sudo make install                                                               
+```
 
 ## 编译 
 ```
