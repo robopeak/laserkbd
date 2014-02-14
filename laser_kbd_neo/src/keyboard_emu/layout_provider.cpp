@@ -7,6 +7,11 @@
  *  http://www.robopeak.net
  */
 
+#if defined(WIN32) || defined(DARWIN)
+#define FEATURE_PATTERN_TYPE_2
+#else
+#include "../config.h"
+#endif
 #include "../common.h"
 #include "../cv_common.h"
 #include <algorithm>
@@ -15,7 +20,6 @@
 #include "kdtree++/kdtree.hpp"
 
 static const float MAX_KEY_BUTTON_SIZE = 60.0f;
-#define FEATURE_PATTERN_TYPE_2
 
 const static KeyDesc_t _key_mapper[] =
 { 

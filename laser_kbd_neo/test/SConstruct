@@ -1,11 +1,15 @@
 env = Environment(CCFLAGS='-g')
 env['CPPPATH'] = ['./../src']
 env['LIBS'] = ['libv4l2', 'libX11']
-env.ParseConfig('pkg-config --cflags --libs atspi-2 libusb-1.0')
+env.ParseConfig('pkg-config --cflags --libs atspi-2 libusb-1.0 x11 xtst')
 
 env.Program('test_productid', ['test_productid.cpp', 
                                './../src/port/linux/productid_linux.cpp'])
 
 env.Program('test_atspi.cpp')
+
+env.Program('test_xtest.cpp')
+
+env.Program('test_keycode.cpp')
 
 env.Program('test_v4l2.cpp')

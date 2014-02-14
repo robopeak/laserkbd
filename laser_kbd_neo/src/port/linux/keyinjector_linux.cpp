@@ -20,9 +20,10 @@
  */
 
 #include <iostream>
-#include <atspi/atspi.h>
 #include <X11/Xlib.h>
+#include <X11/extensions/XTest.h>
 
+#include "config.h"
 #include "common.h"
 #include "port/common/keyinjector.h"
 #include "config_mgr.h"
@@ -62,15 +63,16 @@ public :
         {                                                                   
             keyval = intputlist[pos].keyval;
             keycode = m_KeysymToKeycode(keyval);
-            //printf("DEBUG: keyval %d keycode %d\n", keyval, keycode);
-
+#if DEBUG
+            std::cout << "DEBUG: keyval " << keyval << " keycode " << keycode << std::endl;
+#endif
             if (intputlist[pos].type == KEY_EVENT_PRESSED) 
             {                
                 hasinputs = true;
-                atspi_generate_keyboard_event(keycode, NULL, ATSPI_KEY_PRESS, NULL);
+                m_GenKeyEvent(keycode, True);
             } 
             else 
-                atspi_generate_keyboard_event(keycode, NULL, ATSPI_KEY_RELEASE, NULL);         
+                m_GenKeyEvent(keycode, False);         
         }                    
                                                                                 
         if (hasinputs && g_config_bundle.playsound) 
@@ -90,6 +92,14 @@ private:
             return XKeysymToKeycode(m_display, Keysym);
 
         return -1;
+    }
+
+    void m_GenKeyEvent(int Keycode, Bool isPress) 
+    {
+        if (m_display == NULL) 
+            return;
+        XTestFakeKeyEvent(m_display, Keycode, isPress, 0); 
+        XFlush(m_display);
     }
 
 private:
