@@ -1,9 +1,6 @@
 /*                                                                              
- * Copyright (C) 2013 Deepin, Inc.                                                 
- *               2013 Leslie Zhai                                         
- *                                                                              
- * Author:     Leslie Zhai <zhaixiang@linuxdeepin.com>                           
- * Maintainer: Leslie Zhai <zhaixiang@linuxdeepin.com>                           
+ * Copyright (C) 2014 Leslie Zhai <xiang.zhai@i-soft.com.cn>
+ * Copyright (C) 2013 Deepin, Inc. 
  *                                                                              
  * This program is free software: you can redistribute it and/or modify         
  * it under the terms of the GNU General Public License as published by         
@@ -48,12 +45,12 @@ bool GetPlatformIdentification(platform_id_t & id)
     int i;
                                                                                 
     dp = opendir(sys_net_path);                                                       
-    if (dp)                                                                     
-    {                                                                           
-        while (ep = readdir(dp))                                                
-        {                                                                       
-            if (strstr(ep->d_name, "eth") || strstr(ep->d_name, "wlan")) 
-            {
+    if (dp) {                                                                           
+        while (ep = readdir(dp)) {
+            //-----------------------------------------------------------------
+            // archlinux use ens5, wls1 style, not eth nor wlan
+            //-----------------------------------------------------------------
+            if (strstr(ep->d_name, "e") || strstr(ep->d_name, "w")) {
                 snprintf(address_path, PATH_MAX, "%s/%s/address", sys_net_path, ep->d_name);
                 address_file.open(address_path);
                 address_file >> address_str;
@@ -88,27 +85,27 @@ bool IsTargetProductPresent()
     if (libusb_init(NULL)) 
         return false;
 
-    do 
-    {                                                                        
+    do {                                                                        
         listcnt = libusb_get_device_list(NULL, &dev_list);               
         if (listcnt == 0 || !dev_list) 
             break;                                   
-        for (pos = 0; pos < listcnt; ++pos)                              
-        {                                                                       
+        for (pos = 0; pos < listcnt; ++pos) {
             libusb_device_descriptor desc;                                      
             if (libusb_get_device_descriptor(dev_list[pos], &desc)) 
                 continue;   
             if (desc.idVendor  == release_usb_vid && 
                 desc.idProduct == release_usb_pid && 
-                desc.bcdDevice == release_usb_hw_rev) 
-            {                      
+                desc.bcdDevice == release_usb_hw_rev) {                      
                 ans = true;                                                 
                 break;                                                      
             }                                                                   
         }
         libusb_free_device_list(dev_list, 0);
     } while (0);                                                                 
+    //-------------------------------------------------------------------------
     // FIXME: libusbx: warning [libusb_exit] application left some devices open
-    //libusb_exit(NULL);                                                          
+    // oh~~~ I forgot what devices still open...
+    //-------------------------------------------------------------------------
+    libusb_exit(NULL);                                                          
     return ans;
 }
