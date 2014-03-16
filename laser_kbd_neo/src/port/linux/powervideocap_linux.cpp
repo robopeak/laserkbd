@@ -1,9 +1,6 @@
 /*                                                                              
+ * Copyright (C) 2014 Leslie Zhai <xiang.zhai@i-soft.com.cn>
  * Copyright (C) 2013 Deepin, Inc.                                                 
- *               2013 Leslie Zhai                                                  
- *                                                                              
- * Author:     Leslie Zhai <zhaixiang@linuxdeepin.com>                           
- * Maintainer: Leslie Zhai <zhaixiang@linuxdeepin.com>                           
  *                                                                              
  * This program is free software: you can redistribute it and/or modify         
  * it under the terms of the GNU General Public License as published by         
@@ -24,10 +21,15 @@
 #include <linux/videodev2.h>                                                    
 #include <libv4l2.h>                                                            
 #include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/ioctl.h>
 
 #include "common.h"
 #include "cv_common.h"
 #include "port/common/PowerVideoCapture.h"
+
+#define CLEAR(x) memset(&(x), 0, sizeof(x))
 
 class PowerVideoCapture_Linux : public PowerVideoCapture 
 {
@@ -70,12 +72,11 @@ size_t PowerVideoCapture::EnumCaptureDevices(std::vector<std::string> & list)
     struct dirent* ep = NULL;
 
     dp = opendir("/dev");
-    if (dp) 
-    {
-        while (ep = readdir(dp)) 
-        {
+    if (dp) {
+        // TODO: travel the video devices
+        while (ep = readdir(dp)) {
             if (strstr(ep->d_name, "video"))
-                list.push_back("/dev/" + std::string(ep->d_name));
+                list.insert(list.begin(), "/dev/" + std::string(ep->d_name));
         }
         closedir(dp);
         dp = NULL;
@@ -101,17 +102,86 @@ PowerVideoCapture_Linux::~PowerVideoCapture_Linux()
     _deviceidx = -1;
 }
 
+//-----------------------------------------------------------------------------
+// TODO: set video capture resolution
+// 
+// NOTE: please read the vidcap_set function in the source code 
+// v4l-utils-1.0.1/utils/v4l2-ctl/v4l2-ctl-vidcap.cpp
+// 
+// FAQ: 
+// Q: Why do not use opencv`s cvXXX API? such as 
+// cvSetCaptureProperty(arg1, CV_CAP_PROP_FRAME_WIDTH, arg3)
+// A: opencv set capture width does not work for Linux...
+//-----------------------------------------------------------------------------
 bool PowerVideoCapture_Linux::setImageSize(int width, int height)
 {
-    int ret = 0;
+    bool ret = true;
+    char buf[PATH_MAX] = {0};
+    int fd = -1;
+    struct v4l2_capability cap;
+    struct v4l2_cropcap cropcap;
+    struct v4l2_crop crop;
+    struct v4l2_format fmt;
 
-    if (width && height)
-    {
-        ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_WIDTH, (double)width);
-        ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_HEIGHT, (double)height);
+    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);
+
+    if ((fd = v4l2_open(buf, O_RDWR)) == -1) {
+        std::cout << "ERROR: fail to open device " << buf << std::endl;
+        return false;
     }
 
-    return true;
+    if (v4l2_ioctl(fd, VIDIOC_QUERYCAP, &cap) == -1) {
+        if (EINVAL == errno) 
+            std::cout << buf << " is no V4L2 device" << std::endl;
+        ret = false;
+    }
+
+    if (!(cap.capabilities & V4L2_CAP_VIDEO_CAPTURE)) {
+        std::cout << buf << " is no video capture device" << std::endl;
+        ret = false;
+    }
+
+    CLEAR(cropcap);
+
+    cropcap.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+
+    if (v4l2_ioctl(fd, VIDIOC_CROPCAP, &cropcap) == 0) {
+        crop.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        crop.c = cropcap.defrect; /* reset to default */
+
+        if (v4l2_ioctl(fd, VIDIOC_S_CROP, &crop) == -1) {
+            switch (errno) {
+            case EINVAL:
+                /* Cropping not supported. */
+                std::cout << buf << " not support cropping" << std::endl;
+                break;
+            default:
+                /* Errors ignored. */
+                break;
+            }
+        }
+    }
+
+    CLEAR(fmt);
+
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    if (width && height) {
+        fmt.fmt.pix.width       = width;
+        fmt.fmt.pix.height      = height;
+        fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
+        fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
+
+        //---------------------------------------------------------------------
+        // TODO: I have to learn more about VIDIOC_S_FMT, VIDIOC_G_FMT etc.
+        // I do not know the difference between them right now...
+        //---------------------------------------------------------------------
+        if (v4l2_ioctl(fd, VIDIOC_G_FMT, &fmt) == -1) 
+            std::cout << "ERROR: fail to set resolution" << std::endl;
+    }
+    
+    v4l2_close(fd);
+    fd = -1;
+    return ret;
 }
 
 bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)
@@ -127,11 +197,12 @@ bool PowerVideoCapture_Linux::setExposureVal(long level)
      * v4l2-ctl -w --all | grep exposure 
      */
     char buf[PATH_MAX] = {0};
-    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);
-    int fd = v4l2_open(buf, O_RDWR); 
-    struct v4l2_control ctrl;                                                   
+    int fd = -1;
+    struct v4l2_control ctrl;
+
+    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);    
                                                                                 
-    if (fd == -1) 
+    if ((fd = v4l2_open(buf, O_RDWR)) == -1) 
        return false; 
                                                                                 
     ctrl.id = V4L2_CID_EXPOSURE_AUTO;                                           

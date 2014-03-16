@@ -96,11 +96,14 @@ bool VisionPipeLine::init()
 
     _currentframeSz.height = _currentFrame->height;
     _currentframeSz.width = _currentFrame->width;
+    printf("DEBUG: current resolution is %dx%d\n", 
+        _currentframeSz.width, _currentframeSz.height);
 
     if (_currentframeSz.height != SRC_IMG_HEIGHT || _currentframeSz.width != SRC_IMG_WIDTH)
     {
-        printf("Please set your camera to the resolution %dx%d\n", SRC_IMG_WIDTH, SRC_IMG_HEIGHT);
-        return false;
+        printf("Please set your camera from %dx%d to the resolution %dx%d\n", 
+            _currentframeSz.width, _currentframeSz.height, SRC_IMG_WIDTH, SRC_IMG_HEIGHT);
+        //return false;
     }
 
     std::string filepath_cam = getPlatformConfigPrefix();
