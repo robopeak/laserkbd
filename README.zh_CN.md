@@ -60,7 +60,7 @@ b ./laser_kbd_neo/src/port/linux/powervideocap_linux.cpp:41
 
 ## 视频设备是否支持曝光 
 ```
-v4l2-ctl -w --all | grep exposure
+v4l2-ctl -d /dev/video1 -w --all | grep exposure
 ```
 
 ## keycode

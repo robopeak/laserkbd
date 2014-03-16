@@ -21,15 +21,10 @@
 #include <linux/videodev2.h>                                                    
 #include <libv4l2.h>                                                            
 #include <fcntl.h>
-#include <unistd.h>
-#include <errno.h>
-#include <sys/ioctl.h>
 
 #include "common.h"
 #include "cv_common.h"
 #include "port/common/PowerVideoCapture.h"
-
-#define CLEAR(x) memset(&(x), 0, sizeof(x))
 
 class PowerVideoCapture_Linux : public PowerVideoCapture 
 {
@@ -118,9 +113,6 @@ bool PowerVideoCapture_Linux::setImageSize(int width, int height)
     bool ret = true;
     char buf[PATH_MAX] = {0};
     int fd = -1;
-    struct v4l2_capability cap;
-    struct v4l2_cropcap cropcap;
-    struct v4l2_crop crop;
     struct v4l2_format fmt;
 
     snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);
@@ -130,52 +122,12 @@ bool PowerVideoCapture_Linux::setImageSize(int width, int height)
         return false;
     }
 
-    if (v4l2_ioctl(fd, VIDIOC_QUERYCAP, &cap) == -1) {
-        if (EINVAL == errno) 
-            std::cout << buf << " is no V4L2 device" << std::endl;
-        ret = false;
-    }
-
-    if (!(cap.capabilities & V4L2_CAP_VIDEO_CAPTURE)) {
-        std::cout << buf << " is no video capture device" << std::endl;
-        ret = false;
-    }
-
-    CLEAR(cropcap);
-
-    cropcap.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-
-    if (v4l2_ioctl(fd, VIDIOC_CROPCAP, &cropcap) == 0) {
-        crop.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        crop.c = cropcap.defrect; /* reset to default */
-
-        if (v4l2_ioctl(fd, VIDIOC_S_CROP, &crop) == -1) {
-            switch (errno) {
-            case EINVAL:
-                /* Cropping not supported. */
-                std::cout << buf << " not support cropping" << std::endl;
-                break;
-            default:
-                /* Errors ignored. */
-                break;
-            }
-        }
-    }
-
-    CLEAR(fmt);
-
-    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     if (width && height) {
+        fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         fmt.fmt.pix.width       = width;
         fmt.fmt.pix.height      = height;
         fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
-        fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
-
-        //---------------------------------------------------------------------
-        // TODO: I have to learn more about VIDIOC_S_FMT, VIDIOC_G_FMT etc.
-        // I do not know the difference between them right now...
-        //---------------------------------------------------------------------
-        if (v4l2_ioctl(fd, VIDIOC_G_FMT, &fmt) == -1) 
+        if (v4l2_ioctl(fd, VIDIOC_S_FMT, &fmt) == -1)  
             std::cout << "ERROR: fail to set resolution" << std::endl;
     }
     
