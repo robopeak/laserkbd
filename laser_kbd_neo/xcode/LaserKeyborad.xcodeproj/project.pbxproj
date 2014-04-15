@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6869548218FD9EE100E83E52 /* model_selector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6869548018FD9EE100E83E52 /* model_selector.cpp */; };
 		68A160CD1702909C0086B38B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A160CC1702909C0086B38B /* Cocoa.framework */; };
 		68A160D71702909C0086B38B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68A160D51702909C0086B38B /* InfoPlist.strings */; };
 		68A160D91702909C0086B38B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68A160D81702909C0086B38B /* main.mm */; };
@@ -99,6 +100,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6869548018FD9EE100E83E52 /* model_selector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = model_selector.cpp; path = ../src/model_selector.cpp; sourceTree = "<group>"; };
+		6869548118FD9EE100E83E52 /* model_selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = model_selector.h; path = ../src/model_selector.h; sourceTree = "<group>"; };
 		68A160C91702909C0086B38B /* LaserKeyborad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaserKeyborad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A160CC1702909C0086B38B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		68A160CF1702909C0086B38B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -297,6 +300,8 @@
 		68A160F0170298570086B38B /* source */ = {
 			isa = PBXGroup;
 			children = (
+				6869548018FD9EE100E83E52 /* model_selector.cpp */,
+				6869548118FD9EE100E83E52 /* model_selector.h */,
 				68A160F1170298B30086B38B /* blobfinder.cpp */,
 				68A160F2170298B30086B38B /* blobfinder.h */,
 				68A160F3170298B30086B38B /* camera_selector.cpp */,
@@ -572,6 +577,7 @@
 				68A161691702A3C80086B38B /* json_value.cpp in Sources */,
 				68A1616B1702A3C80086B38B /* json_writer.cpp in Sources */,
 				68A161B71702D44A0086B38B /* UVCCameraControl.m in Sources */,
+				6869548218FD9EE100E83E52 /* model_selector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

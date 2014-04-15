@@ -7,7 +7,7 @@
  *  http://www.robopeak.net
  */
 
-#if defined(WIN32) || defined(DARWIN)
+#if defined(WIN32) || defined(_MACOS)
 #define FEATURE_PATTERN_TYPE_2
 #else
 #include "../config.h"
