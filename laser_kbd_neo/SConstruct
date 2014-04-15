@@ -54,4 +54,5 @@ env.Program('laser_kbd', ['./src/main.cpp',
                           './src/utils.cpp',
                           './src/blobfinder.cpp',
                           './src/camera_selector.cpp', 
+                          './src/model_selector.cpp', 
                          ])

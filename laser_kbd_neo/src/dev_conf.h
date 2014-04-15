@@ -74,7 +74,7 @@ const int SKETCH_AUTOCLEAR_TIMEOUT = 10; //10 sec
 // release option
 #define RELEASE_PRODUCT_TYPE "laserkbd"
 #define RELEASE_VENDOR_TYPE  "DFRobot"
-#define RELEASE_VERSION_INFO "1.1"
+#define RELEASE_VERSION_INFO "1.2"
 #define UPDATE_POST_URL      "http://update.robopeak.com/check_update"
 
 
