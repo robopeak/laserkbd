@@ -57,6 +57,8 @@ void ConfigBundle::loadDefaultValues()
     keyrefire_interval = REFIRE_INTERVAL;
     default_cam_id  = 0;
     playsound = 1;
+
+    model_id = 0;
 }
 
 //----

@@ -19,6 +19,7 @@
 #include "cvpipeline.h"
 #include "resource_mgr.h"
 #include "config_mgr.h"
+#include "model_selector.h"
 #include "camera_selector.h"
 #include "port/common/updatechecker.h"
 #include "port/common/productid.h"
@@ -91,6 +92,8 @@ int main (int argc, char * argv[] )
     int ans = 0;
     int camera_id = -1;
     bool camid_user_specified = false;
+    int model_id = 0;
+    bool modelid_user_specified = false;
     VisionPipeLine::working_mode_t working_mode = VisionPipeLine::MODE_KEYBOARD; 
     bool opt_show_help = false;
     int pos = 1;
@@ -128,6 +131,15 @@ int main (int argc, char * argv[] )
     if (opt_show_help) {
         show_help(argc, argv);
         return 0;
+    }
+
+    ModelSelector modelsel;
+    modelsel.setPredefinedModel(model_id, modelid_user_specified);
+    model_id = modelsel.doModal();
+    g_config_bundle.model_id = model_id;
+
+    if (model_id == 1) {
+        if (g_config_bundle.exposure_level > -9) g_config_bundle.exposure_level = -9;
     }
 
     CameraSelector camsel;

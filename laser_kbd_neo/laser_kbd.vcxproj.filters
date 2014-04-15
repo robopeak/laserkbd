@@ -132,6 +132,9 @@
     <ClCompile Include="ref\jsoncpp-src-0.5.0\src\lib_json\json_writer.cpp">
       <Filter>ref\jsoncpp\impl</Filter>
     </ClCompile>
+    <ClCompile Include="src\model_selector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\blobfinder.h">
@@ -241,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="ref\jsoncpp-src-0.5.0\include\json\value.h">
       <Filter>ref\inc\json</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model_selector.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

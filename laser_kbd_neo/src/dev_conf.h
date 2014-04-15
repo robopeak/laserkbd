@@ -41,16 +41,19 @@ const int MAX_SENSE_DESTANCE = PROJECTED_HEIGHT-10;
 
 // desired camera exposure level
 const int CAM_EXPOSURE_LEVEL = -5;
+const int CAM_EXPOSURE_LEVELv2 = -9;
+
+
 const int REFIRE_DELAY    = 1000;
 const int REFIRE_INTERVAL = 100;
 
-static const char * FILEPATH_PREDEFINE_CAMERA_INTRINSICS = "/intrinsics_cam.xml";
-static const char * FILEPATH_PREDEFINE_CAMERA_DISTORT    = "/intrinsics_distort.xml";
+static const char * FILEPATH_PREDEFINE_CAMERA_INTRINSICS = "intrinsics_cam.xml";
+static const char * FILEPATH_PREDEFINE_CAMERA_DISTORT    = "intrinsics_distort.xml";
 
 
 static const char * FILEPATH_CAMERA_INTRINSICS = "config/intrinsics_cam.xml";
 static const char * FILEPATH_CAMERA_DISTORT    = "config/intrinsics_distort.xml";
-static const char * FILEPATH_LOC_CALIB_DATA    = "config/loc_data.xml";
+static const char * FILEPATH_LOC_CALIB_DATA    = "loc_data.xml";
 static const char * FILEPATH_CONFIG_FILE       = "config/general.txt";
 static const char * FILEPATH_LOC_CALIB_FOLDER  = "config/";
 
@@ -59,6 +62,8 @@ static const char * FILEPATH_RESOURCE_LANG_FOLDER = "res/lang/";
 
 static const char * FILEPATH_RESOURCE_PREDEFINE_FOLDER = "res/prefined/";
 static const char * FILEPATH_RESOURCE_SOUND_FOLDER = "res/sound/";
+
+static const char * FILEPATH_CONFIG_NEWMODEL_PREFIX = "v2_";
 
 // sketch pad related
 const int SKETCH_AREA_HEIGHT = 500;

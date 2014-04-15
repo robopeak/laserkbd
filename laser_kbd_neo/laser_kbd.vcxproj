@@ -113,6 +113,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\keyboard_emu\keyboard_emu.cpp" />
     <ClCompile Include="src\keyboard_emu\layout_provider.cpp" />
+    <ClCompile Include="src\model_selector.cpp" />
     <ClCompile Include="src\port\win32\3rd\opencv\cap_dshow.cpp" />
     <ClCompile Include="src\port\win32\keyinjector_win32.cpp" />
     <ClCompile Include="src\port\win32\platform_language_win32.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="src\dev_conf.h" />
     <ClInclude Include="src\keyboard_emu\keyboard_emu.h" />
     <ClInclude Include="src\keyboard_emu\layout_provider.h" />
+    <ClInclude Include="src\model_selector.h" />
     <ClInclude Include="src\port\common\keyinjector.h" />
     <ClInclude Include="src\port\common\platform_language.h" />
     <ClInclude Include="src\port\common\PowerVideoCapture.h" />

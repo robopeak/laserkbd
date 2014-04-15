@@ -17,7 +17,7 @@
 #include "sketchpad/sketch_pad.h"
 #include "cvpipeline.h"
 #include "resource_mgr.h"
-
+#include "config_mgr.h"
 
 static const char * WINDOWNAME_RECTIFIED = "rectified";
 static const char * WINDOWNAME_ORIGINAL = "original";
@@ -30,7 +30,7 @@ static const float SCALED_SRC_IMG_HEIGHT = (SCALED_SRC_IMG_WIDTH/SRC_IMG_WIDTH) 
 static const int UI_BANNER_HEIGHT = 74;
 
 extern ResourceMgr          g_resouce_mgr;
-
+extern ConfigBundle         g_config_bundle;
 
 
 enum {
@@ -120,6 +120,14 @@ bool VisionPipeLine::init()
 
             filepath_cam+= RELEASE_VENDOR_TYPE;
             filepath_distort+= RELEASE_VENDOR_TYPE;
+
+            filepath_cam+= "/";
+            filepath_distort+="/";
+
+            if (g_config_bundle.model_id == 1) {
+                filepath_cam+= FILEPATH_CONFIG_NEWMODEL_PREFIX;
+                filepath_distort+= FILEPATH_CONFIG_NEWMODEL_PREFIX;
+            }
 
             filepath_cam+= FILEPATH_PREDEFINE_CAMERA_INTRINSICS;
             filepath_distort+= FILEPATH_PREDEFINE_CAMERA_DISTORT;
@@ -487,6 +495,11 @@ void  VisionPipeLine::onCalibrationReady()
 bool  VisionPipeLine::loadLocalizationCalibrationData() {
     CvMat * calibMat;
     std::string filepath = getPlatformConfigPrefix();
+    filepath+= FILEPATH_LOC_CALIB_FOLDER;
+    if (g_config_bundle.model_id == 1) {
+        filepath+= FILEPATH_CONFIG_NEWMODEL_PREFIX;
+    }
+
     filepath+=FILEPATH_LOC_CALIB_DATA;
     try {
         calibMat = (CvMat*)cvLoad(filepath.c_str());
@@ -534,6 +547,12 @@ bool  VisionPipeLine::storeLocalizationCalibrationData() {
     }
 
     std::string filepath = getPlatformConfigPrefix();
+
+    filepath+= FILEPATH_LOC_CALIB_FOLDER;
+    if (g_config_bundle.model_id == 1) {
+        filepath+= FILEPATH_CONFIG_NEWMODEL_PREFIX;
+    }
+
     filepath+=FILEPATH_LOC_CALIB_DATA;
     try {
         CvMat tmpMat = (CvMat)mat;

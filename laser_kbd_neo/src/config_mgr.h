@@ -27,6 +27,9 @@ struct ConfigBundle {
     int keyrefire_interval;
     int default_cam_id;
     int playsound;
+
+    //
+    int model_id;
     ConfigMgr & _mgr;
 };
 
