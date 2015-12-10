@@ -1,5 +1,5 @@
 /*                                                                              
- * Copyright (C) 2014 Leslie Zhai <xiang.zhai@i-soft.com.cn>
+ * Copyright (C) 2014 - 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>
  * Copyright (C) 2013 Deepin, Inc.                                                 
  *                                                                              
  * This program is free software: you can redistribute it and/or modify         
@@ -106,7 +106,7 @@ PowerVideoCapture_Linux::~PowerVideoCapture_Linux()
 // FAQ: 
 // Q: Why do not use opencv`s cvXXX API? such as 
 // cvSetCaptureProperty(arg1, CV_CAP_PROP_FRAME_WIDTH, arg3)
-// A: opencv set capture width does not work for Linux...
+// A: opencv set capture width does not work for Linux via USB1!!!
 //-----------------------------------------------------------------------------
 bool PowerVideoCapture_Linux::setImageSize(int width, int height)
 {
@@ -115,7 +115,7 @@ bool PowerVideoCapture_Linux::setImageSize(int width, int height)
     int fd = -1;
     struct v4l2_format fmt;
 
-    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);
+    snprintf(buf, sizeof(buf) - 1, "/dev/video%d", _deviceidx);
 
     if ((fd = v4l2_open(buf, O_RDWR)) == -1) {
         std::cout << "ERROR: fail to open device " << buf << std::endl;
@@ -123,7 +123,7 @@ bool PowerVideoCapture_Linux::setImageSize(int width, int height)
     }
 
     if (width && height) {
-        fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        fmt.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         fmt.fmt.pix.width       = width;
         fmt.fmt.pix.height      = height;
         fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
@@ -152,18 +152,18 @@ bool PowerVideoCapture_Linux::setExposureVal(long level)
     int fd = -1;
     struct v4l2_control ctrl;
 
-    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);    
+    snprintf(buf, sizeof(buf) - 1, "/dev/video%d", _deviceidx);    
                                                                                 
     if ((fd = v4l2_open(buf, O_RDWR)) == -1) 
        return false; 
                                                                                 
-    ctrl.id = V4L2_CID_EXPOSURE_AUTO;                                           
-    ctrl.value = V4L2_EXPOSURE_MANUAL;                                          
+    ctrl.id     = V4L2_CID_EXPOSURE_AUTO;                                           
+    ctrl.value  = V4L2_EXPOSURE_MANUAL;                                          
     if (v4l2_ioctl(fd, VIDIOC_S_CTRL, &ctrl) == -1)                             
         std::cout << "DEBUG: fail to set exposure_auto" << std::endl; 
                                                                                 
-    ctrl.id = V4L2_CID_EXPOSURE_ABSOLUTE;                                       
-    ctrl.value = 10000.0f * pow((double)2.0f, (double)level);
+    ctrl.id     = V4L2_CID_EXPOSURE_ABSOLUTE;                                       
+    ctrl.value  = 10000.0f * pow((double)2.0f, (double)level);
     if (v4l2_ioctl(fd, VIDIOC_S_CTRL, &ctrl) == -1) 
         std::cout << "DEBUG: fail to set exposure_absolute" << std::endl;
                                                                                 
