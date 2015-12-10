@@ -1,9 +1,6 @@
 /*                                                                              
+ * Copyright (C) 2014 - 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>
  * Copyright (C) 2013 Deepin, Inc.                                                 
- *               2013 Leslie Zhai                                                  
- *                                                                              
- * Author:     Leslie Zhai <zhaixiang@linuxdeepin.com>                           
- * Maintainer: Leslie Zhai <zhaixiang@linuxdeepin.com>                           
  *                                                                              
  * This program is free software: you can redistribute it and/or modify         
  * it under the terms of the GNU General Public License as published by         
@@ -70,12 +67,11 @@ size_t PowerVideoCapture::EnumCaptureDevices(std::vector<std::string> & list)
     struct dirent* ep = NULL;
 
     dp = opendir("/dev");
-    if (dp) 
-    {
-        while (ep = readdir(dp)) 
-        {
+    if (dp) {
+        // TODO: travel the video devices
+        while (ep = readdir(dp)) {
             if (strstr(ep->d_name, "video"))
-                list.push_back("/dev/" + std::string(ep->d_name));
+                list.insert(list.begin(), "/dev/" + std::string(ep->d_name));
         }
         closedir(dp);
         dp = NULL;
@@ -101,17 +97,43 @@ PowerVideoCapture_Linux::~PowerVideoCapture_Linux()
     _deviceidx = -1;
 }
 
+//-----------------------------------------------------------------------------
+// TODO: set video capture resolution
+// 
+// NOTE: please read the vidcap_set function in the source code 
+// v4l-utils-1.0.1/utils/v4l2-ctl/v4l2-ctl-vidcap.cpp
+// 
+// FAQ: 
+// Q: Why do not use opencv`s cvXXX API? such as 
+// cvSetCaptureProperty(arg1, CV_CAP_PROP_FRAME_WIDTH, arg3)
+// A: opencv set capture width does not work for Linux via USB1!!!
+//-----------------------------------------------------------------------------
 bool PowerVideoCapture_Linux::setImageSize(int width, int height)
 {
-    int ret = 0;
+    bool ret = true;
+    char buf[PATH_MAX] = {0};
+    int fd = -1;
+    struct v4l2_format fmt;
 
-    if (width && height)
-    {
-        ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_WIDTH, (double)width);
-        ret = cvSetCaptureProperty(_capture, CV_CAP_PROP_FRAME_HEIGHT, (double)height);
+    snprintf(buf, sizeof(buf) - 1, "/dev/video%d", _deviceidx);
+
+    if ((fd = v4l2_open(buf, O_RDWR)) == -1) {
+        std::cout << "ERROR: fail to open device " << buf << std::endl;
+        return false;
     }
 
-    return true;
+    if (width && height) {
+        fmt.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        fmt.fmt.pix.width       = width;
+        fmt.fmt.pix.height      = height;
+        fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
+        if (v4l2_ioctl(fd, VIDIOC_S_FMT, &fmt) == -1)  
+            std::cout << "ERROR: fail to set resolution" << std::endl;
+    }
+    
+    v4l2_close(fd);
+    fd = -1;
+    return ret;
 }
 
 bool PowerVideoCapture_Linux::getImageSize(int & width, int & height)
@@ -127,20 +149,21 @@ bool PowerVideoCapture_Linux::setExposureVal(long level)
      * v4l2-ctl -w --all | grep exposure 
      */
     char buf[PATH_MAX] = {0};
-    snprintf(buf, PATH_MAX, "/dev/video%d", _deviceidx);
-    int fd = v4l2_open(buf, O_RDWR); 
-    struct v4l2_control ctrl;                                                   
+    int fd = -1;
+    struct v4l2_control ctrl;
+
+    snprintf(buf, sizeof(buf) - 1, "/dev/video%d", _deviceidx);    
                                                                                 
-    if (fd == -1) 
+    if ((fd = v4l2_open(buf, O_RDWR)) == -1) 
        return false; 
                                                                                 
-    ctrl.id = V4L2_CID_EXPOSURE_AUTO;                                           
-    ctrl.value = V4L2_EXPOSURE_MANUAL;                                          
+    ctrl.id     = V4L2_CID_EXPOSURE_AUTO;                                           
+    ctrl.value  = V4L2_EXPOSURE_MANUAL;                                          
     if (v4l2_ioctl(fd, VIDIOC_S_CTRL, &ctrl) == -1)                             
         std::cout << "DEBUG: fail to set exposure_auto" << std::endl; 
                                                                                 
-    ctrl.id = V4L2_CID_EXPOSURE_ABSOLUTE;                                       
-    ctrl.value = 10000.0f * pow((double)2.0f, (double)level);
+    ctrl.id     = V4L2_CID_EXPOSURE_ABSOLUTE;                                       
+    ctrl.value  = 10000.0f * pow((double)2.0f, (double)level);
     if (v4l2_ioctl(fd, VIDIOC_S_CTRL, &ctrl) == -1) 
         std::cout << "DEBUG: fail to set exposure_absolute" << std::endl;
                                                                                 
